@@ -1,4 +1,4 @@
-#include "PhoneBook.class.hpp"
+#include "phonebook.hpp"
 int check_if_in(std::string str)
 {
     int i;
@@ -9,16 +9,32 @@ int check_if_in(std::string str)
     return (0);
 }
 
+void    searchInformation(Contact instance)
+{
+    std::cout << "first name : " << instance.get_firstName() << std::endl;
+    std::cout << "last name : " << instance.get_lastName() << std::endl;
+    std::cout << "nickname : " << instance.get_nickname() << std::endl;
+    std::cout << "login : " << instance.get_login() << std::endl;
+    std::cout << "postal adress : " << instance.get_postalAdress() << std::endl;
+    std::cout << "email adress : " << instance.get_emailAdress() << std::endl;
+    std::cout << "phone number : " << instance.get_phoneNumber() << std::endl;
+    std::cout << "birthday date : " << instance.get_birthdatDate() << std::endl;
+    std::cout << "favorite meal : " << instance.get_firstName() << std::endl;
+    std::cout << "underwear color : " << instance.get_underwearColor() << std::endl;
+    std::cout << "darkest secret : " << instance.get_darkestSecret() << std::endl;
+}
+
 int main()
 {
     std::string command;
     std::string search = "";
-    PhoneBook contact[8];
+    Contact contact[8];
     int i;
 
     i = 0;
     while (1)
     {
+        std::cout << "choose a command : ADD/SEARCH/EXIT" << std::endl;
         std::cin >> command;
         if (command == "ADD")
         {
@@ -33,13 +49,13 @@ int main()
         else if (command == "SEARCH")
         {
             contact->printFields(contact);
-
+            std::cout << "choose index" << std::endl; 
             while (1)
             {
                 std::cin >> search;
                 if (check_if_in(search))
                 {
-                    contact->searchInformation(contact[stoi(search)]);
+                    searchInformation(contact[stoi(search)]);
                     break;
                 }
                 else

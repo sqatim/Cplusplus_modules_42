@@ -1,7 +1,7 @@
 NAME= phonebook
 
 SRC_NAME= main.cpp\
-			PhoneBook.class.cpp
+			Contact.class.cpp
 
 FLAGS= -Wall -Wextra -Werror
 
