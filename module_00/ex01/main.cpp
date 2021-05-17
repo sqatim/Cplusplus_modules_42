@@ -1,10 +1,12 @@
-#include "phonebook.hpp"
-int check_if_in(std::string str)
+#include "Contact.class.hpp"
+
+int check_if_in(std::string str, int contact)
 {
     int i;
 
     i = 0;
-    if ((str[i] >= '0' && str[i] < '8') && str[i + 1] == '\0')
+    std::string index = std::to_string(contact);
+    if ((str[i] >= '0' && str[i] < index[0]) && str[i + 1] == '\0')
         return (1);
     return (0);
 }
@@ -34,8 +36,11 @@ int main()
     i = 0;
     while (1)
     {
-        std::cout << "choose a command : ADD/SEARCH/EXIT" << std::endl;
+        std::cout << "**********************************" << std::endl;
+        std::cout << "Choose a command : ADD/SEARCH/EXIT" << std::endl;
+        std::cout << "**********************************" << std::endl;
         std::cin >> command;
+        std::cout << "----------------------------------" << std::endl;
         if (command == "ADD")
         {
             if (i < 8)
@@ -48,18 +53,23 @@ int main()
         }
         else if (command == "SEARCH")
         {
-            contact->printFields(contact);
-            std::cout << "choose index" << std::endl; 
-            while (1)
+            if(i == 0)
+                std::cout << "No contact founded" << std::endl;
+            else
             {
-                std::cin >> search;
-                if (check_if_in(search))
+                contact->printFields(contact);
+                std::cout << "choose index" << std::endl; 
+                while (1)
                 {
-                    searchInformation(contact[stoi(search)]);
-                    break;
+                    std::cin >> search;
+                    if (check_if_in(search, i))
+                    {
+                        searchInformation(contact[stoi(search)]);
+                        break;
+                    }
+                    else
+                        std::cout << "Sorry, number of index is wrong ! reinsert the number." << std::endl;
                 }
-                else
-                    std::cout << "Sorry, number of index is wrong ! reinsert the number." << std::endl;
             }
         }
         else if (command == "EXIT")

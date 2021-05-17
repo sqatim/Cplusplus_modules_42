@@ -2,6 +2,7 @@
 #define Contact_CLASS_HPP
 
 #include <iostream>
+#include <iomanip>
 
 class Contact
 {
@@ -10,7 +11,7 @@ class Contact
     
     void addInformation(void);
     void printFields(Contact Contact[]);
-    void condition(std::string const& str, int check);
+    void condition(std::string str, int check);
     std::string get_firstName();
     std::string get_lastName();
     std::string get_nickname();

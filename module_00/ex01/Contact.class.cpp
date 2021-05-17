@@ -43,26 +43,28 @@ void Contact::printFields(Contact Contact[])
 {
     for(int i = 0; i < _index; i++)
     {
-        std::cout << i << "|";
+        std::cout << std::setw(10);
+        std::cout << i  << "|" ;
+        std::cout << std::setw(10);
         condition(Contact[i].m_first_name, 1);
         condition(Contact[i].m_last_name, 1);
         condition(Contact[i].m_nickname, 2);
     }
 }
 
-void Contact::condition(std::string const& str, int check)
+void Contact::condition(std::string str, int check)
 {
-    for(int i = 0; str[i]; i++)
+    int len;
+    
+    len = str.size();
+    if(len > 9)
     {
-        if(i == 9 && str[i + 1])
-        {
-            std::cout << ".";
-            break;
-        }
-        std::cout << str[i];
+       str = str.substr(0, 9);
+       str += '.'; 
     }
+    std::cout << str;
      if(check == 1)
-        std::cout << "|";
+        std::cout  << "|" << std::setw(10);
      else if(check == 2)
         std::cout << std::endl;
 }
