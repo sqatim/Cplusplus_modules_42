@@ -13,5 +13,10 @@ void ZombieEvent::setZombieType(std::string type)
 
 void ZombieEvent::randomChump()
 {
-    Zombie zombie("", "Zombie");
+    srand(time(0));
+    std::string str[] = {"vayne", "jhin", "jinx", "caitlyn", "yasuo", "velkoz"};
+    int index = rand() % 6;
+    std::string name = str[index];
+    Zombie zombie(name, "Zombie");
+    zombie.announce();
 }
