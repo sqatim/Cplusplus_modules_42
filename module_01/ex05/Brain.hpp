@@ -9,8 +9,9 @@ class Brain
     private:
 
     public:
-    Brain();
-    std::string identify() const;
+
+        Brain();
+        std::string identify() const;
 };
 
 

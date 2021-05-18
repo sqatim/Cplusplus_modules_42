@@ -11,6 +11,8 @@ class Human
     public:
         std::string identify() const;
         Brain const& getBrain() const;
+        /* this étant un pointeur sur un objet,*this est l'objet lui-même ! 
+        Notre opérateur renvoie donc l'objet lui-même. */
 };
 
 
