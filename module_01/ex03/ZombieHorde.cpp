@@ -2,7 +2,7 @@
 
 void ZombieHorde::announce()
 {
-    for(int i; i < m_n; i++)
+    for(int i = 0; i < m_n; i++)
     {
         srand(time(0));
         std::string str[] = {"vayne", "jhin", "jinx", "caitlyn", "yasuo", "velkoz"};
