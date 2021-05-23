@@ -4,7 +4,7 @@
 int main()
 {
     ZombieEvent zombieEvent;
-    Zombie *zombie;
+    Zombie *zombie = nullptr;
     zombieEvent.setZombieType("default");
     zombie = zombieEvent.newZombie("samir");
     zombie->announce();

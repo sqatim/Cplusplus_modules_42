@@ -10,7 +10,8 @@ class Pony
     std::string m_message;
     
     public:
-    Pony(std::string message);
+        Pony(std::string message);
+        // ~Pony();
 };
 
 #endif
