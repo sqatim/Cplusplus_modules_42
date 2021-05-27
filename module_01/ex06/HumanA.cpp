@@ -9,3 +9,8 @@ void HumanA::attack() const
 {
     std::cout << m_name << "attacks with his " << m_weapon->getType() << std::endl;
 }
+
+HumanA::~HumanA()
+{
+    
+}

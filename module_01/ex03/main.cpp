@@ -3,8 +3,6 @@
 
 int main()
 {
-    //  check number if positif
-    ZombieHorde zombieEvent(10);
-    // zombieEvent.announce();
+    ZombieHorde zombieEvent(2);
     return (0);
 }

@@ -2,9 +2,9 @@
 #include <fstream>
 
 
-std::string readingTheFile()
+std::string readingTheFile(std::string filename)
 {
-    std::ifstream myReadFile("FILENAME");
+    std::ifstream myReadFile(filename);
     std::string text;
     std::string line;
 
@@ -30,22 +30,26 @@ void searchAndReplace(std::string& text, std::string const& occurence, std::stri
     }
 }
 
-void writingInTheFile(std::string const& text)
+void writingInTheFile(std::string const& text, std::string str)
 {
-    std::ofstream myWriteFile("FILENAME.replace");
+    for(unsigned int i = 0; i < str.length(); i++)
+    {
+        str[i] = std::toupper(str[i]);
+    }
+    str += ".replace";
+    std::ofstream myWriteFile(str);
     myWriteFile << text;
     myWriteFile.close();
 
 }
 int main(int ac, char **av)
 {
-    if(ac == 3)
+    if(ac == 4)
     {        
         std::string text;
-        text = readingTheFile();
-        searchAndReplace(text,av[1], av[2]);
-        writingInTheFile(text);
-        // std::cout << text << std::endl;
+        text = readingTheFile(av[1]);
+        searchAndReplace(text,av[2], av[3]);
+        writingInTheFile(text, av[1]);
     }
     else
     {

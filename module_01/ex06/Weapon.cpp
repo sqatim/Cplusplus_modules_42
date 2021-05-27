@@ -15,3 +15,8 @@ Weapon::Weapon(std::string str) : type(str)
 {
 
 }
+
+Weapon::~Weapon()
+{
+
+}

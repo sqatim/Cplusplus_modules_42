@@ -11,7 +11,7 @@ class Pony
     
     public:
         Pony(std::string message);
-        // ~Pony();
+        ~Pony();
 };
 
 #endif

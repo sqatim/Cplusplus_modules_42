@@ -20,3 +20,8 @@ Zombie::Zombie(): m_type("default")
 {
 
 }
+
+Zombie::~Zombie()
+{
+
+}

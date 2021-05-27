@@ -11,3 +11,8 @@ Brain::Brain()
 {
     
 }
+
+Brain::~Brain()
+{
+    
+}

@@ -11,6 +11,7 @@ class Brain
     public:
 
         Brain();
+        ~Brain();
         std::string identify() const;
 };
 
