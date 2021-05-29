@@ -1,5 +1,5 @@
-#ifndef FRAGTRAP_HPP
-#define FRAGTRAP_HPP
+#ifndef SCAVTRAP_HPP
+#define SCAVTRAP_HPP
 
 #include <iostream>
 #include <unistd.h>
@@ -10,9 +10,7 @@
 #define DEFAULT "\033[0m"
 #define PURPLE "\033[0;35m"
 
-
-
-class FragTrap
+class ScavTrap
 {
 	private:
 		std::string m_name;
@@ -25,10 +23,10 @@ class FragTrap
 		int m_rangedAttackDamage;
 		int m_armorDamageReduction;
 	public:
-		FragTrap();
-		FragTrap(std::string name);
-		FragTrap(FragTrap const& src);
-		FragTrap& operator=(FragTrap const& src);
+		ScavTrap();
+		ScavTrap(std::string name);
+		ScavTrap(ScavTrap const& src);
+		ScavTrap& operator=(ScavTrap const& src);
 		void			rangedAttack(std::string const & target);
 		void			meleeAttack(std::string const & target);
 		void			takeDamage(unsigned int amount);
@@ -39,7 +37,10 @@ class FragTrap
 		std::string get_name() const;
 		unsigned int 	get_meleeAttackDamage() const;
 		unsigned int 	get_rangedAttackDamage() const;
-		~FragTrap();
+		~ScavTrap();
 };
+
+
+
 
 #endif

@@ -1,27 +1,27 @@
-#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
-FragTrap::FragTrap() : m_hitPoints(100), m_maxHitPoints(100), m_energyPoints(100),m_maxEnergyPoints(100),
-					   m_level(1), m_meleeAttackDamage(30), m_rangedAttackDamage(20), m_armorDamageReduction(5)
+ScavTrap::ScavTrap() : m_hitPoints(100), m_maxHitPoints(100), m_energyPoints(50),m_maxEnergyPoints(50),
+					   m_level(1), m_meleeAttackDamage(20), m_rangedAttackDamage(15), m_armorDamageReduction(3)
 {
 	std::cout << "Default constructor called" << std::endl;
 	return;
 }
 
-FragTrap::FragTrap(std::string name) : m_name(name), m_hitPoints(100), m_maxHitPoints(100),
-									   m_energyPoints(100), m_maxEnergyPoints(100), m_level(1), m_meleeAttackDamage(30), m_rangedAttackDamage(20), m_armorDamageReduction(5)
+ScavTrap::ScavTrap(std::string name) : m_name(name), m_hitPoints(100), m_maxHitPoints(100),
+									   m_energyPoints(50), m_maxEnergyPoints(50), m_level(1), m_meleeAttackDamage(20), m_rangedAttackDamage(15), m_armorDamageReduction(3)
 {
 	std::cout << "String constructor called" << std::endl;
 	return;
 }
 
-FragTrap::FragTrap(FragTrap const &src)
+ScavTrap::ScavTrap(ScavTrap const &src)
 {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = src;
 	return;
 }
 
-FragTrap &FragTrap::operator=(FragTrap const &src)
+ScavTrap &ScavTrap::operator=(ScavTrap const &src)
 {
 	if (this != &src)
 	{
@@ -37,23 +37,23 @@ FragTrap &FragTrap::operator=(FragTrap const &src)
 	return (*this);
 }
 
-void FragTrap::rangedAttack(std::string const &target)
+void ScavTrap::rangedAttack(std::string const &target)
 {
 	std::cout << "FR4G-TP " << this->m_name << " attacks " << target << " at range, causing "
 			  << this->m_rangedAttackDamage << " points of damage !" << std::endl;
 	return;
 }
 
-void FragTrap::meleeAttack(std::string const &target)
+void ScavTrap::meleeAttack(std::string const &target)
 {
 	std::cout << "FR4G-TP " << this->m_name << " attacks " << target << " melee, causing "
 			  << this->m_meleeAttackDamage << " points of damage !" << std::endl;
 	return;
 }
 
-void FragTrap::takeDamage(unsigned int amount)
+void ScavTrap::takeDamage(unsigned int amount)
 {
-	this->m_hitPoints -= (amount - this->m_armorDamageReduction);
+	this->m_hitPoints -= (amount- this->m_armorDamageReduction);
 	std::cout << RED;
 	if (this->m_hitPoints < 0)
 	{
@@ -66,7 +66,7 @@ void FragTrap::takeDamage(unsigned int amount)
 	return;
 }
 
-void FragTrap::beRepaired(unsigned int amount)
+void ScavTrap::beRepaired(unsigned int amount)
 {
 	std::cout << GREEN;
 	if (this->m_hitPoints == this->m_maxHitPoints)
@@ -82,22 +82,22 @@ void FragTrap::beRepaired(unsigned int amount)
 	std::cout << DEFAULT;
 }
 
-std::string FragTrap::get_name() const
+std::string ScavTrap::get_name() const
 {
 	return (this->m_name);
 }
 
-unsigned int FragTrap::get_meleeAttackDamage() const
+unsigned int ScavTrap::get_meleeAttackDamage() const
 {
 	return (this->m_meleeAttackDamage);
 }
 
-unsigned int FragTrap::get_rangedAttackDamage() const
+unsigned int ScavTrap::get_rangedAttackDamage() const
 {
 	return (this->m_rangedAttackDamage);
 }
 
-unsigned int FragTrap::vaulthunter_dot_exe(std::string const &target)
+unsigned int ScavTrap::vaulthunter_dot_exe(std::string const &target)
 {
 	int index;
 
@@ -142,7 +142,7 @@ unsigned int FragTrap::vaulthunter_dot_exe(std::string const &target)
 	return (0);
 }
 
-int FragTrap::isAlive()
+int ScavTrap::isAlive()
 {
 	if (this->m_hitPoints > 0)
 		return (1);
@@ -150,7 +150,7 @@ int FragTrap::isAlive()
 		return (0);
 }
 
-FragTrap::~FragTrap()
+ScavTrap::~ScavTrap()
 {
 	std::cout << "Destructor called" << std::endl;
 	return;

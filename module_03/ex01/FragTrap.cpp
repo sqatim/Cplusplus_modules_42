@@ -53,7 +53,7 @@ void FragTrap::meleeAttack(std::string const &target)
 
 void FragTrap::takeDamage(unsigned int amount)
 {
-	this->m_hitPoints -= (amount - this->m_armorDamageReduction);
+	this->m_hitPoints -= amount;
 	std::cout << RED;
 	if (this->m_hitPoints < 0)
 	{
