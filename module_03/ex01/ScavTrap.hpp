@@ -33,6 +33,11 @@ class ScavTrap
 		void			beRepaired(unsigned int amount);
 		unsigned int	vaulthunter_dot_exe(std::string const& target);
 		int				isAlive();
+		void			focusChall();
+		void			mysticChall();
+		void			statueChall();
+		void			sursisChall();
+		void			VersatileChall();
 		//	accesors
 		std::string get_name() const;
 		unsigned int 	get_meleeAttackDamage() const;
