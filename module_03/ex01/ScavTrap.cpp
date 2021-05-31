@@ -127,13 +127,21 @@ void ScavTrap::challengeNewcomer()
 	challenge chall[3];
 	int index;
 	chall[0] = &ScavTrap::focusChall;
+	void (ScavTrap::*ptr[3])(void) = {
+		&ScavTrap::focusChall,
+		&ScavTrap::mysticChall,
+		&ScavTrap::statueChall
+	};
 	// chall[0] = (&ScavTrap::focusChall());
 	// chall[1] = this->mysticChall;
 	// chall[2] = this->statueChall;
 	srand(time(0));
-	index = rand() % 4;
-	if(index == 0)
-		Schall[0]();
+	index = rand() % 3;
+	for(int i = 0; i < 3; i++)
+	{
+		if (i == index)
+			(this->*ptr[index])();
+	}
 	// else if(index == 1)
 	// 	chall[1]();
 	// else if(index == 2)
