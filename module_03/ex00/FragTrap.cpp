@@ -58,10 +58,10 @@ void FragTrap::takeDamage(unsigned int amount)
 	if (this->m_hitPoints < 0)
 	{
 		this->m_hitPoints = 0;
-		std::cout << "FRAG-TP " << this->m_name << " is death" << std::endl;
+		std::cout << "FR4G-TP " << this->m_name << " is death" << std::endl;
 		return ;
 	}
-	std::cout << "FRAG-TP " << this->m_name << " have " << this->m_hitPoints << " hp!" << std::endl;
+	std::cout << "FR4G-TP " << this->m_name << " have " << this->m_hitPoints << " hp!" << std::endl;
 	std::cout << DEFAULT;
 	return;
 }
@@ -70,14 +70,14 @@ void FragTrap::beRepaired(unsigned int amount)
 {
 	std::cout << GREEN;
 	if (this->m_hitPoints == this->m_maxHitPoints)
-		std::cout << "FRAG-TP " << this->m_name << " cant Heal, Full Hp" << std::endl;
+		std::cout << "FR4G-TP " << this->m_name << " cant Heal, Full Hp" << std::endl;
 	else
 	{
 		this->m_hitPoints += amount;
 		if (this->m_hitPoints > this->m_maxHitPoints)
 			this->m_hitPoints = this->m_maxHitPoints;
-		std::cout << "FRAG-TP " << this->m_name << " take a popo!" << std::endl;
-		std::cout << "FRAG-TP " << this->m_name << "'s hitPoints is up to " << this->m_hitPoints << " hp" << std::endl;
+		std::cout << "FR4G-TP " << this->m_name << " take a popo!" << std::endl;
+		std::cout << "FR4G-TP " << this->m_name << "'s hitPoints is up to " << this->m_hitPoints << " hp" << std::endl;
 	}
 	std::cout << DEFAULT;
 }

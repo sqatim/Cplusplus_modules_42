@@ -10,6 +10,7 @@
 #define DEFAULT "\033[0m"
 #define PURPLE "\033[0;35m"
 
+
 class ScavTrap
 {
 	private:
@@ -22,6 +23,7 @@ class ScavTrap
 		int m_meleeAttackDamage;
 		int m_rangedAttackDamage;
 		int m_armorDamageReduction;
+
 	public:
 		ScavTrap();
 		ScavTrap(std::string name);
@@ -31,13 +33,13 @@ class ScavTrap
 		void			meleeAttack(std::string const & target);
 		void			takeDamage(unsigned int amount);
 		void			beRepaired(unsigned int amount);
-		unsigned int	vaulthunter_dot_exe(std::string const& target);
 		int				isAlive();
 		void			focusChall();
 		void			mysticChall();
 		void			statueChall();
-		void			sursisChall();
-		void			VersatileChall();
+		void			challengeNewcomer();
+
+		// typedef void(*challenge)();
 		//	accesors
 		std::string get_name() const;
 		unsigned int 	get_meleeAttackDamage() const;
@@ -45,6 +47,7 @@ class ScavTrap
 		~ScavTrap();
 };
 
+typedef void (ScavTrap::*challenge)();
 
 
 
