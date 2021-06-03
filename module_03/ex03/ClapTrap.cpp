@@ -14,7 +14,8 @@ ClapTrap::ClapTrap(std::string name, int hitPoints, int maxHitPoints, \
 			m_maxEnergyPoints(maxEnergyPoints), m_level(level), m_meleeAttackDamage(meleeAttackDamage), \
 			m_rangedAttackDamage(rangedAttackDamage), m_armorDamageReduction(armorDamageReduction)
 {
-
+	std::cout << "ClapTrap::Constructor called" << std::endl;
+    return;
 }
 ClapTrap::ClapTrap(ClapTrap const& src)
 {
@@ -41,14 +42,14 @@ ClapTrap& ClapTrap::operator=(ClapTrap const& src)
 
 void ClapTrap::rangedAttack(std::string const &target)
 {
-	std::cout << "FR4G-TP " << this->m_name << " attacks " << target << " at range, causing "
+	std::cout << this->m_name << " attacks " << target << " at range, causing "
 			  << this->m_rangedAttackDamage << " points of damage !" << std::endl;
 	return;
 }
 
 void ClapTrap::meleeAttack(std::string const &target)
 {
-	std::cout << "FR4G-TP " << this->m_name << " attacks " << target << " melee, causing "
+	std::cout << this->m_name << " attacks " << target << " melee, causing "
 			  << this->m_meleeAttackDamage << " points of damage !" << std::endl;
 	return;
 }
@@ -60,10 +61,10 @@ void ClapTrap::takeDamage(unsigned int amount)
 	if (this->m_hitPoints < 0)
 	{
 		this->m_hitPoints = 0;
-		std::cout << "FR4G-TP " << this->m_name << " is death" << std::endl;
+		std::cout << this->m_name << " is death" << std::endl;
 		return ;
 	}
-	std::cout << "FR4G-TP " << this->m_name << " have " << this->m_hitPoints << " hp!" << std::endl;
+	std::cout << this->m_name << " have " << this->m_hitPoints << " hp!" << std::endl;
 	std::cout << DEFAULT;
 	return;
 }
@@ -72,14 +73,14 @@ void ClapTrap::beRepaired(unsigned int amount)
 {
 	std::cout << GREEN;
 	if (this->m_hitPoints == this->m_maxHitPoints)
-		std::cout << "FR4G-TP " << this->m_name << " cant Heal, Full Hp" << std::endl;
+		std::cout << this->m_name << " cant Heal, Full Hp" << std::endl;
 	else
 	{
 		this->m_hitPoints += amount;
 		if (this->m_hitPoints > this->m_maxHitPoints)
 			this->m_hitPoints = this->m_maxHitPoints;
-		std::cout << "FR4G-TP " << this->m_name << " take a popo!" << std::endl;
-		std::cout << "FR4G-TP " << this->m_name << "'s hitPoints is up to " << this->m_hitPoints << " hp" << std::endl;
+		std::cout << this->m_name << " take a popo!" << std::endl;
+		std::cout << this->m_name << "'s hitPoints is up to " << this->m_hitPoints << " hp" << std::endl;
 	}
 	std::cout << DEFAULT;
 }

@@ -27,7 +27,10 @@ public:
 			int energyPoints, int maxEnergyPoints, int level, \
 			int meleeAttackDamage, int rangedAttackDamage, \
 			int armorDamageReduction);
-    ClapTrap(ClapTrap const& src);
+	ClapTrap(std::string name, int hitPoints, int maxHitPoints, \
+			int rangedAttackDamage, int armorDamageReduction);
+    ClapTrap::ClapTrap(int energyPoints, int maxEnergyPoints, int meleeAttackDamage);
+	ClapTrap(ClapTrap const& src);
     ClapTrap& operator=(ClapTrap const& src);
     ~ClapTrap();
     void			rangedAttack(std::string const & target);

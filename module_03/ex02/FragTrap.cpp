@@ -1,22 +1,20 @@
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap() : m_hitPoints(100), m_maxHitPoints(100), m_energyPoints(100),m_maxEnergyPoints(100),
-					   m_level(1), m_meleeAttackDamage(30), m_rangedAttackDamage(20), m_armorDamageReduction(5)
+FragTrap::FragTrap() : ClapTrap("", 100, 100, 50, 50, 1, 20, 15, 3)
 {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "FragTrap:Default constructor called" << std::endl;
 	return;
 }
 
-FragTrap::FragTrap(std::string name) : m_name(name), m_hitPoints(100), m_maxHitPoints(100),
-									   m_energyPoints(100), m_maxEnergyPoints(100), m_level(1), m_meleeAttackDamage(30), m_rangedAttackDamage(20), m_armorDamageReduction(5)
+FragTrap::FragTrap(std::string name) : ClapTrap(name, 100, 100, 50, 50, 1, 20, 15, 3)
 {
-	std::cout << "String constructor called" << std::endl;
+	std::cout << "FragTrap:String constructor called" << std::endl;
 	return;
 }
 
 FragTrap::FragTrap(FragTrap const &src)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "FragTrap:Copy constructor called" << std::endl;
 	*this = src;
 	return;
 }
@@ -37,8 +35,6 @@ FragTrap &FragTrap::operator=(FragTrap const &src)
 	return (*this);
 }
 
-
-
 unsigned int FragTrap::vaulthunter_dot_exe(std::string const &target)
 {
 	int index;
@@ -47,7 +43,7 @@ unsigned int FragTrap::vaulthunter_dot_exe(std::string const &target)
 	index = rand() % 5;
 	if (this->m_energyPoints < 25)
 	{
-		std::cout << "U dont have enough energy" << std::endl;
+		std::cout << "FR4G-TP " << this->m_name << " dont have enough energy" << std::endl;
 		return (0);
 	}
 	else if (index == 0)
@@ -86,6 +82,6 @@ unsigned int FragTrap::vaulthunter_dot_exe(std::string const &target)
 
 FragTrap::~FragTrap()
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "FragTrap:Destructor called" << std::endl;
 	return;
 }

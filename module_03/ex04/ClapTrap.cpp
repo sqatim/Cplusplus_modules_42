@@ -17,6 +17,23 @@ ClapTrap::ClapTrap(std::string name, int hitPoints, int maxHitPoints, \
 	std::cout << "ClapTrap::Constructor called" << std::endl;
     return;
 }
+
+ClapTrap::ClapTrap(std::string name, int hitPoints, int maxHitPoints, \
+			int rangedAttackDamage, int armorDamageReduction) : m_name(name), \
+			m_hitPoints(hitPoints), m_maxHitPoints(maxHitPoints), \
+			m_rangedAttackDamage(rangedAttackDamage), m_armorDamageReduction(armorDamageReduction), m_level(1)
+{
+	std::cout << "ClapTrap::Constructor called" << std::endl;
+    return;
+}
+
+ClapTrap::ClapTrap(int energyPoints, int maxEnergyPoints, int meleeAttackDamage) : \
+			m_energyPoints(energyPoints), m_maxEnergyPoints(maxEnergyPoints), m_meleeAttackDamage(meleeAttackDamage)
+{
+	std::cout << "ClapTrap::Constructor called" << std::endl;
+    return;
+}
+
 ClapTrap::ClapTrap(ClapTrap const& src)
 {
     std::cout << "ClapTrap::Copy constructor called" << std::endl;

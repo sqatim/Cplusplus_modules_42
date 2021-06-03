@@ -2,19 +2,19 @@
 
 ScavTrap::ScavTrap() : ClapTrap("", 100, 100, 50, 50, 1, 20, 15, 3)
 {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "ScavTrap::Default constructor called" << std::endl;
 	return;
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name, 100, 100, 50, 50, 1, 20, 15, 3)
 {
-	std::cout << "String constructor called" << std::endl;
+	std::cout << "ScavTrap::String constructor called" << std::endl;
 	return;
 }
 
 ScavTrap::ScavTrap(ScavTrap const &src)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "ScavTrap::Copy constructor called" << std::endl;
 	*this = src;
 	return;
 }
@@ -70,6 +70,6 @@ void ScavTrap::challengeNewcomer()
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "ScavTrap::Destructor called" << std::endl;
 	return;
 }
