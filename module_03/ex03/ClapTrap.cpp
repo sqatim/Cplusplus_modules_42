@@ -31,6 +31,7 @@ ClapTrap& ClapTrap::operator=(ClapTrap const& src)
         this->m_name = src.m_name;
 		this->m_hitPoints = src.m_hitPoints;
 		this->m_maxHitPoints = src.m_maxHitPoints;
+		this->m_energyPoints = src.m_energyPoints;
 		this->m_maxEnergyPoints = src.m_maxEnergyPoints;
 		this->m_level = src.m_level;
 		this->m_meleeAttackDamage = src.m_meleeAttackDamage;
@@ -58,7 +59,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 {
 	this->m_hitPoints -= amount;
 	std::cout << RED;
-	if (this->m_hitPoints < 0)
+	if (this->m_hitPoints <= 0)
 	{
 		this->m_hitPoints = 0;
 		std::cout << this->m_name << " is death" << std::endl;

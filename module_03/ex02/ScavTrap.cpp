@@ -1,6 +1,6 @@
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap() : ClapTrap("", 100, 100, 50, 50, 1, 20, 15, 3)
+ScavTrap::ScavTrap() : ClapTrap("Default", 100, 100, 50, 50, 1, 20, 15, 3)
 {
 	std::cout << "ScavTrap::Default constructor called" << std::endl;
 	return;
@@ -26,6 +26,7 @@ ScavTrap &ScavTrap::operator=(ScavTrap const &src)
 		this->m_name = src.m_name;
 		this->m_hitPoints = src.m_hitPoints;
 		this->m_maxHitPoints = src.m_maxHitPoints;
+		this->m_energyPoints = src.m_energyPoints;
 		this->m_maxEnergyPoints = src.m_maxEnergyPoints;
 		this->m_level = src.m_level;
 		this->m_meleeAttackDamage = src.m_meleeAttackDamage;

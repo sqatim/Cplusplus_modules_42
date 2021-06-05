@@ -1,6 +1,6 @@
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap() : m_hitPoints(100), m_maxHitPoints(100), m_energyPoints(100),m_maxEnergyPoints(100),
+FragTrap::FragTrap() : m_name("Default"), m_hitPoints(100), m_maxHitPoints(100), m_energyPoints(100),m_maxEnergyPoints(100),
 					   m_level(1), m_meleeAttackDamage(30), m_rangedAttackDamage(20), m_armorDamageReduction(5)
 {
 	std::cout << "Default constructor called" << std::endl;
@@ -28,6 +28,7 @@ FragTrap &FragTrap::operator=(FragTrap const &src)
 		this->m_name = src.m_name;
 		this->m_hitPoints = src.m_hitPoints;
 		this->m_maxHitPoints = src.m_maxHitPoints;
+		this->m_energyPoints = src.m_energyPoints;
 		this->m_maxEnergyPoints = src.m_maxEnergyPoints;
 		this->m_level = src.m_level;
 		this->m_meleeAttackDamage = src.m_meleeAttackDamage;
@@ -55,7 +56,7 @@ void FragTrap::takeDamage(unsigned int amount)
 {
 	this->m_hitPoints -= (amount - this->m_armorDamageReduction);
 	std::cout << RED;
-	if (this->m_hitPoints < 0)
+	if (this->m_hitPoints <= 0)
 	{
 		this->m_hitPoints = 0;
 		std::cout << "FR4G-TP " << this->m_name << " is death" << std::endl;

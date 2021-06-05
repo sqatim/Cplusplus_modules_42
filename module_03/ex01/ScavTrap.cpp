@@ -1,6 +1,6 @@
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap() : m_hitPoints(100), m_maxHitPoints(100), m_energyPoints(50),m_maxEnergyPoints(50),
+ScavTrap::ScavTrap() : m_name("Default"), m_hitPoints(100), m_maxHitPoints(100), m_energyPoints(50),m_maxEnergyPoints(50),
 					   m_level(1), m_meleeAttackDamage(20), m_rangedAttackDamage(15), m_armorDamageReduction(3)
 {
 	std::cout << "Default constructor called" << std::endl;
@@ -28,6 +28,7 @@ ScavTrap &ScavTrap::operator=(ScavTrap const &src)
 		this->m_name = src.m_name;
 		this->m_hitPoints = src.m_hitPoints;
 		this->m_maxHitPoints = src.m_maxHitPoints;
+		this->m_energyPoints = src.m_energyPoints;
 		this->m_maxEnergyPoints = src.m_maxEnergyPoints;
 		this->m_level = src.m_level;
 		this->m_meleeAttackDamage = src.m_meleeAttackDamage;
@@ -55,7 +56,7 @@ void ScavTrap::takeDamage(unsigned int amount)
 {
 	this->m_hitPoints -= (amount- this->m_armorDamageReduction);
 	std::cout << RED;
-	if (this->m_hitPoints < 0)
+	if (this->m_hitPoints <= 0)
 	{
 		this->m_hitPoints = 0;
 		std::cout << "SC4V-TP " << this->m_name << " is death" << std::endl;
@@ -124,17 +125,12 @@ void	ScavTrap::statueChall()
 
 void ScavTrap::challengeNewcomer()
 {
-	challenge chall[3];
 	int index;
-	chall[0] = &ScavTrap::focusChall;
 	void (ScavTrap::*ptr[3])(void) = {
 		&ScavTrap::focusChall,
 		&ScavTrap::mysticChall,
 		&ScavTrap::statueChall
 	};
-	// chall[0] = (&ScavTrap::focusChall());
-	// chall[1] = this->mysticChall;
-	// chall[2] = this->statueChall;
 	srand(time(0));
 	index = rand() % 3;
 	for(int i = 0; i < 3; i++)
@@ -142,10 +138,6 @@ void ScavTrap::challengeNewcomer()
 		if (i == index)
 			(this->*ptr[index])();
 	}
-	// else if(index == 1)
-	// 	chall[1]();
-	// else if(index == 2)
-	// 	chall[2]();
 }
 
 ScavTrap::~ScavTrap()

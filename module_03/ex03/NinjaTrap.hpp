@@ -9,15 +9,14 @@
 class NinjaTrap : public ClapTrap
 {
 	private:
-		/* data */
 	public:
-		NinjaTrap(/* args */);
+		NinjaTrap();
 		NinjaTrap(std::string name);
 		NinjaTrap(NinjaTrap const& src);
 		NinjaTrap& operator=(NinjaTrap const& src);
-		void ninjaShoebox(FragTrap const& fragTrap);
-		void ninjaShoebox(ScavTrap const& scavTrap);
-		void ninjaShoebox(NinjaTrap const& ninjaTrap);
+		void ninjaShoebox(FragTrap& fragTrap);
+		void ninjaShoebox(ScavTrap& scavTrap);
+		void ninjaShoebox(NinjaTrap& ninjaTrap);
 		~NinjaTrap();
 };
 

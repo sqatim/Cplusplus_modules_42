@@ -28,7 +28,6 @@ int main()
 {
     ScavTrap scavTrap1("Sejuani");
     ScavTrap scavTrap2("Vayne");
-    int damage;
 
     srand(time(0));
     while (scavTrap1.isAlive() && scavTrap2.isAlive())
