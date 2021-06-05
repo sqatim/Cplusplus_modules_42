@@ -26,6 +26,7 @@ ScavTrap &ScavTrap::operator=(ScavTrap const &src)
 		this->m_name = src.m_name;
 		this->m_hitPoints = src.m_hitPoints;
 		this->m_maxHitPoints = src.m_maxHitPoints;
+		this->m_energyPoints = src.m_energyPoints;
 		this->m_maxEnergyPoints = src.m_maxEnergyPoints;
 		this->m_level = src.m_level;
 		this->m_meleeAttackDamage = src.m_meleeAttackDamage;

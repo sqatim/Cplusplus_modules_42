@@ -1,14 +1,32 @@
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap() : ClapTrap("", 100, 100, 50, 50, 1, 20, 15, 3)
+FragTrap::FragTrap()
 {
-	std::cout << "FragTrap::Default constructor called" << std::endl;
+	this->m_name = "Default";
+	this->m_hitPoints = 100;
+	this->m_maxHitPoints = 100;
+	this->m_energyPoints = 100;
+	this->m_maxEnergyPoints = 100;
+	this->m_level = 1;
+	this->m_meleeAttackDamage = 30;
+	this->m_rangedAttackDamage = 20;
+	this->m_armorDamageReduction = 5;
+	std::cout << "FragTrap1::Default constructor called" << std::endl;
 	return;
 }
 
-FragTrap::FragTrap(std::string name) : ClapTrap(name, 100, 100, 50, 50, 1, 20, 15, 3)
+FragTrap::FragTrap(std::string name) 
 {
-	std::cout << "FragTrap::String constructor called" << std::endl;
+	std::cout << "FragTrap2::String constructor called" << std::endl;
+	this->m_name = name;
+	this->m_hitPoints = 100;
+	this->m_maxHitPoints = 100;
+	this->m_energyPoints = 100;
+	this->m_maxEnergyPoints = 100;
+	this->m_level = 1;
+	this->m_meleeAttackDamage = 30;
+	this->m_rangedAttackDamage = 20;
+	this->m_armorDamageReduction = 5;
 	return;
 }
 
@@ -26,6 +44,7 @@ FragTrap &FragTrap::operator=(FragTrap const &src)
 		this->m_name = src.m_name;
 		this->m_hitPoints = src.m_hitPoints;
 		this->m_maxHitPoints = src.m_maxHitPoints;
+		this->m_energyPoints = src.m_energyPoints;
 		this->m_maxEnergyPoints = src.m_maxEnergyPoints;
 		this->m_level = src.m_level;
 		this->m_meleeAttackDamage = src.m_meleeAttackDamage;

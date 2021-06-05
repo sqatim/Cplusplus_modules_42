@@ -11,18 +11,18 @@
 #define DEFAULT "\033[0m"
 #define PURPLE "\033[0;35m"
 
-class FragTrap : public ClapTrap
+class FragTrap : public virtual ClapTrap
 {
 	private:
 
 	public:
 		FragTrap();
 		FragTrap(std::string name);
-		FragTrap
+		FragTrap(std::string name, int hitPoints, int maxHitPoints, \
+			int rangedAttackDamage, int armorDamageReduction);
 		FragTrap(FragTrap const& src);
 		FragTrap& operator=(FragTrap const& src);
 		unsigned int	vaulthunter_dot_exe(std::string const& target);
-		int				isAlive();
 		~FragTrap();
 };
 

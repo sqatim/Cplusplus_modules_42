@@ -2,38 +2,26 @@
 
 ClapTrap::ClapTrap()
 {
-	std::cout << "ClapTrap::Default constructor called" << std::endl;
+	std::cout << "ClapTrap1::Default constructor called" << std::endl;
     return;
 }
 
 ClapTrap::ClapTrap(std::string name, int hitPoints, int maxHitPoints, \
 			int energyPoints, int maxEnergyPoints, int level, \
 			int meleeAttackDamage, int rangedAttackDamage, \
-			int armorDamageReduction) :m_name(name), \
+			int armorDamageReduction) : m_name(name), \
 			m_hitPoints(hitPoints), m_maxHitPoints(maxHitPoints), m_energyPoints(energyPoints),\
 			m_maxEnergyPoints(maxEnergyPoints), m_level(level), m_meleeAttackDamage(meleeAttackDamage), \
 			m_rangedAttackDamage(rangedAttackDamage), m_armorDamageReduction(armorDamageReduction)
 {
-	std::cout << "ClapTrap::Constructor called" << std::endl;
+	std::cout << "ClapTrap2::Constructor called" << std::endl;
     return;
 }
 
-ClapTrap::ClapTrap(std::string name, int hitPoints, int maxHitPoints, \
-			int rangedAttackDamage, int armorDamageReduction) : m_name(name), \
-			m_hitPoints(hitPoints), m_maxHitPoints(maxHitPoints), \
-			m_rangedAttackDamage(rangedAttackDamage), m_armorDamageReduction(armorDamageReduction), m_level(1)
+ClapTrap::ClapTrap(std::string name)
 {
-	std::cout << "ClapTrap::Constructor called" << std::endl;
-    return;
+	this->m_name = name;
 }
-
-ClapTrap::ClapTrap(int energyPoints, int maxEnergyPoints, int meleeAttackDamage) : \
-			m_energyPoints(energyPoints), m_maxEnergyPoints(maxEnergyPoints), m_meleeAttackDamage(meleeAttackDamage)
-{
-	std::cout << "ClapTrap::Constructor called" << std::endl;
-    return;
-}
-
 ClapTrap::ClapTrap(ClapTrap const& src)
 {
     std::cout << "ClapTrap::Copy constructor called" << std::endl;
@@ -48,6 +36,7 @@ ClapTrap& ClapTrap::operator=(ClapTrap const& src)
         this->m_name = src.m_name;
 		this->m_hitPoints = src.m_hitPoints;
 		this->m_maxHitPoints = src.m_maxHitPoints;
+		this->m_energyPoints = src.m_energyPoints;
 		this->m_maxEnergyPoints = src.m_maxEnergyPoints;
 		this->m_level = src.m_level;
 		this->m_meleeAttackDamage = src.m_meleeAttackDamage;
@@ -75,7 +64,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 {
 	this->m_hitPoints -= amount;
 	std::cout << RED;
-	if (this->m_hitPoints < 0)
+	if (this->m_hitPoints <= 0)
 	{
 		this->m_hitPoints = 0;
 		std::cout << this->m_name << " is death" << std::endl;
@@ -124,7 +113,6 @@ int ClapTrap::isAlive()
 	else
 		return (0);
 }
-
 ClapTrap::~ClapTrap()
 {
     std::cout << "ClapTrap::Destructor called" << std::endl;

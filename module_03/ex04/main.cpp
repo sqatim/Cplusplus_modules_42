@@ -2,39 +2,48 @@
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 #include "NinjaTrap.hpp"
+#include "SuperTrap.hpp"
 
-void chooseAction(ScavTrap& scavTrap1, ScavTrap& scavTrap2)
+void chooseAction(SuperTrap& superTrap1, SuperTrap& superTrap2)
 {
     int index;
 
-    index = (rand() + 1) % 5;
+    index = (rand() + 1) % 4;
     if (index == 1)
     {
-        scavTrap1.meleeAttack(scavTrap2.get_name());
-        scavTrap2.takeDamage(scavTrap1.get_meleeAttackDamage());
+        superTrap1.meleeAttack(superTrap2.get_name());
+        superTrap2.takeDamage(superTrap1.get_meleeAttackDamage());
     }
     else if (index == 2)
     {
-        scavTrap1.rangedAttack(scavTrap2.get_name());
-        scavTrap2.takeDamage(scavTrap1.get_rangedAttackDamage());
+        superTrap1.rangedAttack(superTrap2.get_name());
+        superTrap2.takeDamage(superTrap1.get_rangedAttackDamage());
     }
     else if (index == 3)
-        scavTrap1.challengeNewcomer();
-    else if (index == 4)
-        scavTrap1.beRepaired(25);
+        superTrap1.beRepaired(25);
     std::cout << DEFAULT;
 }
 
 int main()
 {
-    ScavTrap scavTrap("scavTrap1");
-    FragTrap fragTrap("fragTrap1");
-    NinjaTrap ninjaTrap("ninjaTrap1");
+    SuperTrap superTrap1("Sejuani");
+    SuperTrap superTrap2("Vayne");
 
-    std::cout << GREEN;
-    ninjaTrap.ninjaShoebox(scavTrap);
-    ninjaTrap.ninjaShoebox(fragTrap);
-    ninjaTrap.ninjaShoebox(ninjaTrap);
-    std::cout << DEFAULT;
+    srand(time(0));
+    while (superTrap1.isAlive() && superTrap2.isAlive())
+    {
+        int index = (rand() + 1) % 3;
+        if (index == 1)
+        {
+            std::cout << PURPLE;
+            chooseAction(superTrap1, superTrap2);
+        }
+        else
+        {
+            std::cout << BLUE;
+            chooseAction(superTrap2, superTrap1);
+        }
+        sleep(1);
+    }
     return (0);
 }

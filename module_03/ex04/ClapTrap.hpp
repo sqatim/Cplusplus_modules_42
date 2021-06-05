@@ -1,6 +1,7 @@
 #ifndef CLAPTRAP_HPP
 #define CLAPTRAP_HPP
 
+
 #include <iostream>
 #define GREEN "\033[0;32m"
 #define RED "\033[0;31m"
@@ -23,13 +24,11 @@ protected:
 
 public:
     ClapTrap();
+    ClapTrap(std::string);
     ClapTrap(std::string name, int hitPoints, int maxHitPoints,	\
 			int energyPoints, int maxEnergyPoints, int level, \
 			int meleeAttackDamage, int rangedAttackDamage, \
 			int armorDamageReduction);
-	ClapTrap(std::string name, int hitPoints, int maxHitPoints, \
-			int rangedAttackDamage, int armorDamageReduction);
-    ClapTrap::ClapTrap(int energyPoints, int maxEnergyPoints, int meleeAttackDamage);
 	ClapTrap(ClapTrap const& src);
     ClapTrap& operator=(ClapTrap const& src);
     ~ClapTrap();

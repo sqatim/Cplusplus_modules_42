@@ -9,10 +9,12 @@
 class SuperTrap : public FragTrap, public NinjaTrap
 {
 private:
-    /* data */
 public:
-    SuperTrap(/* args */);
+    SuperTrap();
     SuperTrap(std::string name);
+    SuperTrap& operator=(SuperTrap const& src);
+    SuperTrap(SuperTrap const& src);
+    void initialisation();
 
     ~SuperTrap();
 };
