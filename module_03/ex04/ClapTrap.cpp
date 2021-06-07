@@ -67,6 +67,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 	if (this->m_hitPoints <= 0)
 	{
 		this->m_hitPoints = 0;
+		std::cout << "*********** CL4P-TP " << this->m_name << " : \"I am dead, I am dead. Oh my god, I'm dead.\" *********** " << std::endl;
 		std::cout << this->m_name << " is death" << std::endl;
 		return ;
 	}

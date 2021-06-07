@@ -59,6 +59,7 @@ void ScavTrap::takeDamage(unsigned int amount)
 	if (this->m_hitPoints <= 0)
 	{
 		this->m_hitPoints = 0;
+		std::cout << "*********** SC4V-TP " << this->m_name << " : \"I am dead, I am dead. Oh my god, I'm dead.\" *********** " << std::endl;
 		std::cout << "SC4V-TP " << this->m_name << " is death" << std::endl;
 		return ;
 	}

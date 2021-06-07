@@ -19,6 +19,7 @@ void chooseAction(FragTrap &fragTrap1, FragTrap &fragTrap2)
     else if (index == 3)
     {
         damage = fragTrap1.vaulthunter_dot_exe(fragTrap2.get_name());
+        std::cout << "*********** FR4G-TP " << fragTrap1.get_name() << " : \"Ha-HA!\" *********** " << std::endl;
         if (damage != 0)
             fragTrap2.takeDamage(damage);
     }

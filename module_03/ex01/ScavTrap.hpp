@@ -39,16 +39,11 @@ class ScavTrap
 		void			statueChall();
 		void			challengeNewcomer();
 
-		// typedef void(*challenge)();
 		//	accesors
 		std::string get_name() const;
 		unsigned int 	get_meleeAttackDamage() const;
 		unsigned int 	get_rangedAttackDamage() const;
 		~ScavTrap();
 };
-
-typedef void (ScavTrap::*challenge)();
-
-
 
 #endif

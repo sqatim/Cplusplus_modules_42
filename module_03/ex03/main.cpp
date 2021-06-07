@@ -19,7 +19,10 @@ void chooseAction(NinjaTrap& ninjaTrap1, NinjaTrap& ninjaTrap2)
         ninjaTrap2.takeDamage(ninjaTrap1.get_rangedAttackDamage());
     }
     else if (index == 3)
+    {
+        std::cout << "*********** Ninja-TP " << ninjaTrap1.get_name() << " : \"Ha-HA!\" *********** " << std::endl;
         ninjaTrap1.ninjaShoebox(ninjaTrap2);
+    }
     else if (index == 4)
         ninjaTrap1.beRepaired(25);
     std::cout << DEFAULT;

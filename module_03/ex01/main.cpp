@@ -16,7 +16,10 @@ void chooseAction(ScavTrap& scavTrap1, ScavTrap& scavTrap2)
         scavTrap2.takeDamage(scavTrap1.get_rangedAttackDamage());
     }
     else if (index == 3)
+    {
+        std::cout << "*********** SC4V-TP " << scavTrap1.get_name() << " : \"Ha-HA!\" *********** " << std::endl;
         scavTrap1.challengeNewcomer();
+    }
     else if (index == 4)
         scavTrap1.beRepaired(25);
     std::cout << DEFAULT;

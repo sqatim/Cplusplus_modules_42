@@ -28,8 +28,4 @@ class ScavTrap : public ClapTrap
 		~ScavTrap();
 };
 
-typedef void (ScavTrap::*challenge)();
-
-
-
 #endif

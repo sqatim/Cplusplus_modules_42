@@ -10,8 +10,6 @@
 #define DEFAULT "\033[0m"
 #define PURPLE "\033[0;35m"
 
-
-
 class FragTrap
 {
 	private:
