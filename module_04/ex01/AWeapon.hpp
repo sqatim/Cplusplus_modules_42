@@ -8,7 +8,7 @@ class AWeapon
 protected:
 	std::string m_name;
 	unsigned int m_damage;
-	unsigned int m_actionPoints;
+	unsigned int m_apCost;
 
 public:
 	//  Constructors;
