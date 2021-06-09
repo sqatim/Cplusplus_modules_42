@@ -29,25 +29,65 @@ Character& Character::operator=(Character const& src)
     return (*this);
 }
 
+void Character::equip(AWeapon *weapon)
+{
+    this->m_weapon = weapon;
+}
+
 void Character::attack(Enemy *enemy)
 {
-    if(enemy != nullptr)
+    if(this->m_weapon != nullptr)
     {
-        std::cout << this->m_name << " has " << this->m_ap << " AP and wields a " \
+        std::cout << this->m_name << " attacks " << enemy->getType() << " with a " \
             << this->m_weapon->getName() << std::endl;
         if(this->m_ap - this->m_weapon->getAPCost() >= 0)
         {
             this->m_weapon->attack();
             enemy->takeDamage(this->m_weapon->getDamage());
+            if(enemy->getHP() == 0)
+            {
+                delete enemy;
+                enemy = nullptr;
+            }
             this->m_ap -= this->m_weapon->getAPCost();
         }
     }
-    else
-            std::cout << this->m_name << " has " << this->m_ap << " AP and is unarmed" << std::endl;
+}
+
+std::string const Character::getName() const
+{
+    return (this->m_name);
+}
+
+int Character::getAp() const
+{
+    return (this->m_ap);
+}
+
+std::string Character::getWeaponName() const
+{
+    return (this->m_weapon->getName());
+}
+
+void*  Character::getAddWeapon() const
+{
+    return ((void *)this->m_weapon);
 }
 
 Character::~Character()
 {
 
     return ;
+}
+
+std::ostream& operator<<(std::ostream& output, Character const& src)
+{
+    if(src.getAddWeapon() != nullptr)
+    {
+        output << src.getName() << " has " << src.getAp() << " AP and wields a " \
+            << src.getWeaponName() << std::endl;
+    }
+    else
+        output << src.getName() << " has " << src.getAp() << " AP and is unarmed" << std::endl;
+    return (output);
 }

@@ -33,6 +33,11 @@ int Enemy::getHP() const
     return (this->m_hp);
 }
 
+std::string const Enemy::getType() const
+{
+    return (this->m_type);
+}
+
 // na9ass accesors dyal type;
 
 void    Enemy::takeDamage(int amount)

@@ -26,7 +26,10 @@ public:
     void attack(Enemy*);
 
     //  Accessors;
-    std::string /*[...]*/ getName() const;
+    std::string const getName() const;
+    int getAp() const;
+    std::string getWeaponName() const;
+    void* getAddWeapon() const;
     ~Character();
 };
 

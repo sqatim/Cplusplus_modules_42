@@ -20,7 +20,7 @@ public:
 	AWeapon& operator=(AWeapon const& src);
 
 	//  Accessors
-	std::string /* something is missing */ getName() const;
+	std::string const getName() const;
 	int getAPCost() const;
 	int getDamage() const;
 

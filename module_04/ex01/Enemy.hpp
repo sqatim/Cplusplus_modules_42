@@ -19,7 +19,7 @@ public:
 
     //Accessors
     int getHP() const;
-    std::string /*[...]*/ getType() const;
+    std::string const getType() const;
 
     // Other Function
     virtual void takeDamage(int);
