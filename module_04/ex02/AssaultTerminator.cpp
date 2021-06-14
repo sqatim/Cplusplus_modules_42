@@ -16,8 +16,9 @@ AssaultTerminator& AssaultTerminator::operator=(AssaultTerminator const& src)
 {
     if(this != &src)
     {
+        *this = src;
     }
-    return ;
+    return *this;
 }
 
 void AssaultTerminator::battleCry() const
@@ -35,8 +36,14 @@ void AssaultTerminator::meleeAttack() const
     std::cout << "* attacks with chainfists *" << std::endl;
 }
 
-AssaultTerminator::AssaultTerminator()
+AssaultTerminator::~AssaultTerminator()
 {
     std::cout << "I’ll be back..." << std::endl;
     return ;
+}
+
+ISpaceMarine* AssaultTerminator::clone() const
+{
+    AssaultTerminator *tmp = new AssaultTerminator(*this);
+    return (tmp);
 }

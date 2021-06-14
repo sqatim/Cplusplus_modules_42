@@ -2,11 +2,11 @@
 #define ASSAULTTERMINATOR_HPP
 
 #include <iostream>
+#include "ISpaceMarine.hpp"
 
-class AssaultTerminator
+class AssaultTerminator : public ISpaceMarine
 {
 private:
-    /* data */
 public:
     //  Constructors
     AssaultTerminator();
@@ -14,6 +14,7 @@ public:
     //  Operators Overload
     AssaultTerminator& operator=(AssaultTerminator const& src);
     //  Other Functions
+    virtual ISpaceMarine* clone() const;
     void battleCry() const;
     void rangedAttack() const;
     void meleeAttack() const;

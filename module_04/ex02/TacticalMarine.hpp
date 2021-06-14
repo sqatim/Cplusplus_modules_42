@@ -2,6 +2,7 @@
 #define TACTICALMARINE_HPP
 
 #include "ISpaceMarine.hpp"
+#include <iostream>
 
 class TacticalMarine : public ISpaceMarine
 {

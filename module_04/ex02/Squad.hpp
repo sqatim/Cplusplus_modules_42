@@ -3,10 +3,11 @@
 
 #include "ISquad.hpp"
 
-class Squad
+class Squad : public ISquad
 {
 private:
-    /* data */
+    int m_count;
+    ISpaceMarine** m_units;
 public:
     Squad();
     Squad(Squad const& src);

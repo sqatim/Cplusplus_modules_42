@@ -1,8 +1,7 @@
 #include "Squad.hpp"
 
-Squad::Squad()
+Squad::Squad() : m_count(0)
 {
-
     return ;
 }
 
@@ -16,12 +15,52 @@ Squad& Squad::operator=(Squad const & src)
 {
     if(this != &src)
     {
+        this->m_count = src.m_count;
     }
     return (*this);
 }
 
-Squad::Squad()
+int Squad::getCount() const
 {
+    return (this->m_count);
+}
 
+ISpaceMarine* Squad::getUnit(int unit) const
+{
+    if(unit < 0 || unit > m_count)
+        return (nullptr);
+    return (m_units[unit]);
+}
+
+int Squad::push(ISpaceMarine* spaceMarine)
+{
+    if(this->m_count == 0)
+    {
+        m_units = new ISpaceMarine*[1];
+        m_units[0] = spaceMarine;
+        m_count = 1;
+        return (m_count);
+    }
+    else
+    {
+        ISpaceMarine **tmp = new ISpaceMarine*[m_count+1];
+        int i = 0;
+        while (i < m_count)
+        {
+            tmp[i] = m_units[i];
+            i++;
+        }
+        delete[] m_units;
+        tmp[i] = spaceMarine;
+        m_units = tmp;
+        m_count++;
+        return (m_count);
+    }
+}
+
+Squad::~Squad()
+{
+    if(m_count > 0)
+        delete[] m_units;
     return ;
 }
