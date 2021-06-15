@@ -18,7 +18,7 @@ public:
     
     //  Other Functions
     virtual AMateria* clone() const;  
-    
+    void use(ICharacter& target);
     //  Destructor
     virtual ~Cure();
 };
