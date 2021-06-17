@@ -11,7 +11,7 @@ private:
 public:
     //  Constructor
     Ice();
-    Ice(Ice const& src);
+    // Ice(Ice const& src);
 
     //  Operator Overload
     Ice& operator=(Ice const& src);

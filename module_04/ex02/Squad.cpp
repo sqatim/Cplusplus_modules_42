@@ -60,7 +60,7 @@ int Squad::push(ISpaceMarine* spaceMarine)
 
 Squad::~Squad()
 {
-    if(m_count > 0)
-        delete[] m_units;
+    // if(m_count > 0)
+        // delete[] m_units;
     return ;
 }

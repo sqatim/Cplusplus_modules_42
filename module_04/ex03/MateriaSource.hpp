@@ -6,7 +6,8 @@
 class MateriaSource : public IMateriaSource
 {
 private:
-    AMateria m_materia[4];
+    AMateria *  m_materia[4];
+    int m_size;
 public:
     MateriaSource(/* args */);
     virtual void learnMateria(AMateria*);

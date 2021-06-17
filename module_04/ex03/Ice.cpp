@@ -6,11 +6,11 @@ Ice::Ice()
     return;
 }
 
-Ice::Ice(Ice const& ice)
-{
-    *this = ice;
-    return;
-}
+// Ice::Ice(Ice const& ice)
+// {
+//     *this = ice;
+//     return;
+// }
 
 Ice& Ice::operator=(Ice const& ice)
 {

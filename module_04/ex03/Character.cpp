@@ -34,13 +34,19 @@ void Character::equip(AMateria *m)
 
 void Character::unequip(int idx)
 {
+    if(this->m_size > 0 && idx >= 0 && idx < this->m_size)
+    {
+        // khasni nshufti hadshi man ba3d
+        this->m_materia[idx] = nullptr;
+    }
 }
 
 void Character::use(int idx, ICharacter &target)
 {
-    // target.use();
-    this->m_materia[0][idx].use(target);
+    if(this->m_size > 0 && idx >= 0 && idx < this->m_size)
+        this->m_materia[0][idx].use(target);
 }
+
 
 Character::~Character()
 {
