@@ -1,5 +1,5 @@
 #include "Character.hpp"
-#include "Cure.hpp"
+// #include "Cure.hpp"
 
 Character::Character(std::string const &name) : m_name(name), m_size(0)
 {

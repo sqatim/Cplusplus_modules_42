@@ -2,6 +2,8 @@
 #define ICHARACTER_HPP
 
 #include <iostream>
+#include "IMateriaSource.hpp"
+
 
 class ICharacter
 {
