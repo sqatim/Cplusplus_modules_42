@@ -1,4 +1,5 @@
 #include "Character.hpp"
+#include "AMateria.hpp"
 // #include "Cure.hpp"
 
 Character::Character(std::string const &name) : m_name(name), m_size(0)
@@ -23,11 +24,19 @@ Character &Character::operator=(Character const &character)
     return (*this);
 }
 
+std::string const & Character::getName() const
+{
+    return (this->m_name);
+}
+
 void Character::equip(AMateria *m)
 {
     if (this->m_size < 4)
     {
-        (*this->m_materia)[this->m_size] = *m;
+
+        std::cout << "m " <<m->getType() << std::endl;
+        this->m_materia[this->m_size] = m;
+        std::cout << this->m_materia[this->m_size]->getType() << std::endl;
         this->m_size++;
     }
 }
@@ -44,7 +53,11 @@ void Character::unequip(int idx)
 void Character::use(int idx, ICharacter &target)
 {
     if(this->m_size > 0 && idx >= 0 && idx < this->m_size)
-        this->m_materia[0][idx].use(target);
+    {
+    // std::cout << "lalalalalala" << std::endl;
+        std::cout << "hamza ==> " << this->m_materia[0][idx].getType() << std::endl;
+        // this->m_materia[0][idx].use(target);
+    }
 }
 
 

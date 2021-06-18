@@ -10,6 +10,7 @@ private:
     int m_size;
 public:
     MateriaSource(/* args */);
+    virtual AMateria* getAMateria() const;
     virtual void learnMateria(AMateria*);
     virtual AMateria* createMateria(std::string const & type);
     ~MateriaSource();

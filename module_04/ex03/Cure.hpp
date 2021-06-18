@@ -11,7 +11,7 @@ private:
 public:
     //  Constructor
     Cure();
-    Cure(Cure const& cure);
+    // Cure(Cure const& cure);
 
     //  Operator Overload
     Cure& operator=(Cure const& cure);
