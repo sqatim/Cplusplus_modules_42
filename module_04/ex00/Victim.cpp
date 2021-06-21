@@ -1,8 +1,9 @@
 #include "Victim.hpp"
 
-Victim::Victim()
+Victim::Victim() : m_name("Default")
 {
-    
+    std::cout << "Some random victim called " << this->m_name \
+            << " just appeared!" << std::endl;
     return ;
 }
 

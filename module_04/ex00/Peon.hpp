@@ -6,13 +6,13 @@
 class Peon : public Victim
 {
 private:
+    Peon();
 
 public:
-    Peon();
     Peon(std::string name);
     Peon(Peon const& src);
     Peon& operator=(Peon const& src);
-    ~Peon();
+    virtual ~Peon();
 };
 
 #endif

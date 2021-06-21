@@ -34,6 +34,14 @@ void Character::equip(AWeapon *weapon)
     this->m_weapon = weapon;
 }
 
+void Character::recoverAP()
+{
+    if(m_ap < 40)
+        m_ap += 10;
+    if(m_ap > 40)
+        m_ap = 40;
+}
+
 void Character::attack(Enemy *enemy)
 {
     if(this->m_weapon != nullptr)
@@ -47,7 +55,6 @@ void Character::attack(Enemy *enemy)
             if(enemy->getHP() == 0)
             {
                 delete enemy;
-                enemy = nullptr;
             }
             this->m_ap -= this->m_weapon->getAPCost();
         }

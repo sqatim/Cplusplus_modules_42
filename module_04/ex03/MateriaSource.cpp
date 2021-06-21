@@ -10,15 +10,11 @@ void MateriaSource::learnMateria(AMateria *materia)
 {
     if (this->m_size < 4)
     {
-        this->m_materia[this->m_size] = materia->clone();
+        this->m_materia[this->m_size] = materia;
         this->m_size++;
     }
 }
 
-AMateria *MateriaSource::getAMateria() const
-{
-    return (this->m_materia[1]);
-}
 
 AMateria *MateriaSource::createMateria(std::string const &type)
 {
@@ -26,7 +22,7 @@ AMateria *MateriaSource::createMateria(std::string const &type)
     {
         if (this->m_materia[i]->getType() == type)
         {
-            return this->m_materia[i]->clone();
+            return this->m_materia[i];
         }
     }
     return 0;
@@ -34,5 +30,12 @@ AMateria *MateriaSource::createMateria(std::string const &type)
 
 MateriaSource::~MateriaSource()
 {
-    // this->m_materia = new AMateria[4];
+    if(this->m_materia[0] != nullptr)
+    {
+        for(int i = 0; i < m_size; i++)
+        {
+            delete m_materia[i];
+        }
+    }
+    return ;
 }

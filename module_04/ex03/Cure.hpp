@@ -14,7 +14,7 @@ public:
     // Cure(Cure const& cure);
 
     //  Operator Overload
-    Cure& operator=(Cure const& cure);
+    // Cure& operator=(Cure const& cure);
     
     //  Other Functions
     virtual AMateria* clone() const;  

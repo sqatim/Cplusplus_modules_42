@@ -17,7 +17,7 @@ public:
     //  Other Functions
 
 
-    ~RadScorpion();
+    virtual ~RadScorpion();
 };
 
 #endif

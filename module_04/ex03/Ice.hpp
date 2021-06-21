@@ -5,15 +5,13 @@
 
 class Ice : public AMateria
 {
-private:
-    /* data */
-
 public:
     //  Constructor
     Ice();
+    // Ice(Ice const& src);
 
     //  Operator Overload
-    Ice& operator=(Ice const& src);
+    // Ice& operator=(Ice const& src);
 
     //  Other Functions
     virtual AMateria* clone() const;

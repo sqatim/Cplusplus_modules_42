@@ -16,6 +16,12 @@ Squad& Squad::operator=(Squad const & src)
     if(this != &src)
     {
         this->m_count = src.m_count;
+        if(src.m_count > 0)
+        {
+            this->m_units = new ISpaceMarine*[src.m_count];
+            for(int i = 0; i < src.m_count; i++)
+                this->m_units[i] = src.m_units[i];
+        }
     }
     return (*this);
 }
@@ -60,7 +66,7 @@ int Squad::push(ISpaceMarine* spaceMarine)
 
 Squad::~Squad()
 {
-    // if(m_count > 0)
-        // delete[] m_units;
+    if(m_count > 0)
+        delete[] m_units;
     return ;
 }

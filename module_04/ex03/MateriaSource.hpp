@@ -9,10 +9,18 @@ private:
     AMateria *  m_materia[4];
     int m_size;
 public:
-    MateriaSource(/* args */);
-    virtual AMateria* getAMateria() const;
+    // Constructor
+    MateriaSource();
+    MateriaSource(MateriaSource const& src);
+
+    // Operator Overloading
+    MateriaSource& operator=(MateriaSource const& src);
+
+    // Other function
     virtual void learnMateria(AMateria*);
     virtual AMateria* createMateria(std::string const & type);
+
+    // Destructor
     ~MateriaSource();
 };
 

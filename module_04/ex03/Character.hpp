@@ -11,13 +11,22 @@ private:
     int m_size;
     Character();
 public:
+    // Constructor 
     Character(std::string const& name);
     Character(Character const& character);
+
+    // Operator Overloading
     Character& operator=(Character const& character);
-    virtual std::string const & getName() const;
+
+    // Other Function
     virtual void equip(AMateria* m);
     virtual void unequip(int idx);
     virtual void use(int idx, ICharacter& target);
+
+    // Getters
+    virtual std::string const & getName() const;
+
+    // Destructor
     ~Character();
 };
 

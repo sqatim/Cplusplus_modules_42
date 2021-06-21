@@ -11,14 +11,14 @@ Cure::Cure() : AMateria("cure")
 //     return;
 // }
 
-Cure& Cure::operator=(Cure const& cure)
-{
-    if(this != &cure)
-    {
-        std::cout << "salam a wlad nasss en colour" << std::endl;
-    }
-    return *this;
-}
+// Cure& Cure::operator=(Cure const& cure)
+// {
+//     if(this != &cure)
+//     {
+//         std::cout << "salam a wlad nasss en colour" << std::endl;
+//     }
+//     return *this;
+// }
 
 AMateria* Cure::clone() const
 {
@@ -27,12 +27,11 @@ AMateria* Cure::clone() const
 
 void Cure::use(ICharacter& target)
 {
-    std::cout << "* heals  " << m_type << "’s wounds *" << std::endl;
+    std::cout << "* heals  " << target.getName() << "’s wounds *" << std::endl;
 }
 
 
 Cure::~Cure()
 {
-
     return;
 }

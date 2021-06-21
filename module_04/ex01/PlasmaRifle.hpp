@@ -18,7 +18,7 @@ public:
 	//	Other functions;
 	virtual void attack() const;
 	
-	~PlasmaRifle();
+	virtual ~PlasmaRifle();
 };
 
 

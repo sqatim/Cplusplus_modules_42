@@ -1,15 +1,18 @@
 #include "Character.hpp"
 #include "AMateria.hpp"
-// #include "Cure.hpp"
+
 
 Character::Character(std::string const &name) : m_name(name), m_size(0)
 {
+    for(int i = 0; i < 4; i++)
+        this->m_materia[i] = nullptr;
+    return;
 }
 
 Character::Character(Character const &character)
 {
     *this = character;
-    return;
+    return ;
 }
 
 Character &Character::operator=(Character const &character)
@@ -42,23 +45,28 @@ void Character::unequip(int idx)
 {
     if(this->m_size > 0 && idx >= 0 && idx < this->m_size)
     {
-        // khasni nshufti hadshi man ba3d
         this->m_materia[idx] = nullptr;
+        int i = idx + 1;
+        for(; this->m_materia[i] != nullptr && i < this->m_size; i++)
+            this->m_materia[idx] = this->m_materia[i];
+        this->m_materia[i] = nullptr;
+        this->m_size--;
     }
+    return ;
 }
 
 void Character::use(int idx, ICharacter &target)
 {
-    if(this->m_size > 0 && idx >= 0 && idx < this->m_size)
+    if(this->m_materia[0] != nullptr)
     {
-    // std::cout << "lalalalalala" << std::endl;
-        this->m_materia[idx]->use(target);
+        if(this->m_size > 0 && idx >= 0 && idx < this->m_size)
+            this->m_materia[idx]->use(target);
     }
+    return ;
 }
 
 
 Character::~Character()
 {
-
     return;
 }

@@ -1,11 +1,5 @@
 #include "Sorcerer.hpp"
 
-Sorcerer::Sorcerer()
-{
-    
-    return;
-}
-
 Sorcerer::Sorcerer(std::string name, std::string title) : m_name(name), m_title(title)
 {
     std::cout << this->m_name << ", " << this->m_title << ", is born!" << std::endl;

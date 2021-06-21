@@ -17,7 +17,7 @@ public:
     
     //  Other Functions
     virtual void takeDamage(int);
-    ~SuperMutant();
+    virtual ~SuperMutant();
 };
 
 

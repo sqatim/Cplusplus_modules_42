@@ -9,9 +9,9 @@ class Sorcerer
 private:
     std::string m_name;
     std::string m_title;
+    Sorcerer();
 public:
     //Constructors;
-    Sorcerer();
     Sorcerer(std::string name, std::string title);
     Sorcerer(Sorcerer const& src);
     

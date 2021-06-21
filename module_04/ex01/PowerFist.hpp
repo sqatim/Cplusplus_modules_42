@@ -18,7 +18,7 @@ public:
     //  Other Functions
     virtual void attack() const;
 
-    ~PowerFist();
+    virtual ~PowerFist();
 };
 
 #endif

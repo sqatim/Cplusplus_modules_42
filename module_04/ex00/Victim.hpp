@@ -21,7 +21,7 @@ public:
     //  accessors
     std::string getName() const;
 
-    ~Victim();
+    virtual ~Victim();
 };
 
 std::ostream& operator<<(std::ostream& output , Victim const& src);

@@ -5,20 +5,14 @@ Ice::Ice() : AMateria("ice")
     return;
 }
 
-// Ice::Ice(Ice const& ice)
+// Ice& Ice::operator=(Ice const& ice)
 // {
-//     *this = ice;
-//     return;
+//     if(this != &ice)
+//     {
+//         this->m_type = ice.m_type;
+//     }
+//     return *this;
 // }
-
-Ice& Ice::operator=(Ice const& ice)
-{
-    if(this != &ice)
-    {
-        this->m_type = ice.m_type;
-    }
-    return *this;
-}
 
 AMateria* Ice::clone() const
 {
@@ -27,7 +21,7 @@ AMateria* Ice::clone() const
 
 void Ice::use(ICharacter& target)
 {
-    std::cout << "* shoots an ice bolt at " << m_type << " *" << std::endl;
+    std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }
 
 Ice::~Ice()

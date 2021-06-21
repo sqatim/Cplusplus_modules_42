@@ -1,11 +1,5 @@
 #include "Peon.hpp"
 
-Peon::Peon()
-{
-
-    return;
-}
-
 Peon::Peon(std::string name) : Victim(name)
 {
     std::cout << "Zog zog" << std::endl;
