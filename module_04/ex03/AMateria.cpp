@@ -20,16 +20,15 @@ unsigned int AMateria::getXP() const
     return (this->_xp);
 }
 
-// AMateria& AMateria::operator=(AMateria const & src)
-// {
-//     if(this != &src)
-//     {
-//         this->m_type = src.m_type;
-//         this->_xp = src._xp;
-//         std::cout << "w b9a fiya lhal" << std::endl;
-//     }
-//     return (*this);
-// }
+AMateria& AMateria::operator=(AMateria const & src)
+{
+    if(this != &src)
+    {
+        this->m_type = src.m_type;
+        this->_xp = src._xp;
+    }
+    return (*this);
+}
 
 void AMateria::use(ICharacter &target)
 {
@@ -38,14 +37,5 @@ void AMateria::use(ICharacter &target)
 
 AMateria::~AMateria()
 {
+    
 }
-
-// AMateria::AMateria()
-// {
-
-// }
-
-// AMateria::AMateria()
-// {
-
-// }

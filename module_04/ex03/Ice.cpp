@@ -1,4 +1,4 @@
-7#include "Ice.hpp"
+#include "Ice.hpp"
 
 Ice::Ice() : AMateria("ice")
 {
@@ -33,9 +33,4 @@ void Ice::use(ICharacter& target)
 Ice::~Ice()
 {
     return;
-}0.
-
-.0  3
-.
-0/*-
-.0147
+}

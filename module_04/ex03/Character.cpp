@@ -33,10 +33,7 @@ void Character::equip(AMateria *m)
 {
     if (this->m_size < 4)
     {
-
-        std::cout << "m " <<m->getType() << std::endl;
         this->m_materia[this->m_size] = m;
-        std::cout << this->m_materia[this->m_size]->getType() << std::endl;
         this->m_size++;
     }
 }
@@ -55,8 +52,7 @@ void Character::use(int idx, ICharacter &target)
     if(this->m_size > 0 && idx >= 0 && idx < this->m_size)
     {
     // std::cout << "lalalalalala" << std::endl;
-        std::cout << "hamza ==> " << this->m_materia[0][idx].getType() << std::endl;
-        // this->m_materia[0][idx].use(target);
+        this->m_materia[idx]->use(target);
     }
 }
 
