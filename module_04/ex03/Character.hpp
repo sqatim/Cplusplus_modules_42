@@ -23,7 +23,7 @@ public:
     virtual void unequip(int idx);
     virtual void use(int idx, ICharacter& target);
 
-    // Getters
+    // Accessors
     virtual std::string const & getName() const;
 
     // Destructor

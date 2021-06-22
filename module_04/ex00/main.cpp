@@ -6,14 +6,14 @@
 int main()
 {
     Sorcerer robert("Robert", "the Magnificent");
-    Victim jim("Jim");
+    Victim jim("Jimmy");
     Peon joe("Joe");
-    Bwak bwak("Bwak");
-    Aboub aboub("Aboub");
-    std::cout << robert << jim << joe;
+    // Bwak bwak("Bwak");
+    // Aboub aboub("Aboub");
+    std::cout << robert << jim << joe ; // << bwak << aboub;
     robert.polymorph(jim);
     robert.polymorph(joe);
-    robert.polymorph(bwak);
-    robert.polymorph(aboub);
+    // robert.polymorph(bwak);
+    // robert.polymorph(aboub);
     return 0;
 }

@@ -20,7 +20,11 @@ Peon& Peon::operator=(Peon const& src)
     }
     return (*this);
 }
-
+void Peon::getPolymorphed() const
+{
+    std::cout << this->m_name << \
+        "  has been turned into a pink pony!" << std::endl;
+}
 Peon::~Peon()
 {
     std::cout << "Bleuark..." << std::endl;

@@ -12,6 +12,7 @@ public:
     Peon(std::string name);
     Peon(Peon const& src);
     Peon& operator=(Peon const& src);
+    virtual void getPolymorphed() const;
     virtual ~Peon();
 };
 

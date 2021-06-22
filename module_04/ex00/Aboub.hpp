@@ -12,6 +12,7 @@ public:
     Aboub(std::string name);
     Aboub(Aboub const& src);
     Aboub& operator=(Aboub const& src);
+    virtual void getPolymorphed() const;
     virtual ~Aboub();
 };
 

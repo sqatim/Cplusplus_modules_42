@@ -16,7 +16,6 @@ public:
     Character();
     Character(std::string const & name);
     Character(Character const& src);
-   // [...]
     //  Operators Overload;
     Character& operator=(Character const& src);
 

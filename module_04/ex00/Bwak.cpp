@@ -21,6 +21,12 @@ Bwak& Bwak::operator=(Bwak const& src)
     return (*this);
 }
 
+void Bwak::getPolymorphed() const
+{
+    std::cout << this->m_name << \
+        "  has been turned into a black pony!" << std::endl;
+}
+
 Bwak::~Bwak()
 {
     std::cout << "Kwwwwwab..." << std::endl;

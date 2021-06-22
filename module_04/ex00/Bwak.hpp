@@ -12,6 +12,7 @@ public:
     Bwak(std::string name);
     Bwak(Bwak const& src);
     Bwak& operator=(Bwak const& src);
+    virtual void getPolymorphed() const;
     virtual ~Bwak();
 };
 

@@ -2,6 +2,7 @@
 
 Squad::Squad() : m_count(0)
 {
+    this->m_units = nullptr;
     return ;
 }
 
@@ -18,6 +19,11 @@ Squad& Squad::operator=(Squad const & src)
         this->m_count = src.m_count;
         if(src.m_count > 0)
         {
+            if(this->m_units != nullptr)
+            {
+                for(int i = 0; i < this->m_count; i++)
+                    delete this->m_units[i];
+            }
             this->m_units = new ISpaceMarine*[src.m_count];
             for(int i = 0; i < src.m_count; i++)
                 this->m_units[i] = src.m_units[i];
@@ -66,7 +72,7 @@ int Squad::push(ISpaceMarine* spaceMarine)
 
 Squad::~Squad()
 {
-    if(m_count > 0)
-        delete[] m_units;
+	for (int i = 0; i < m_count; i++)
+		delete m_units[i];
     return ;
 }

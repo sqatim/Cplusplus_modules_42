@@ -65,7 +65,6 @@ void Character::use(int idx, ICharacter &target)
     return ;
 }
 
-
 Character::~Character()
 {
     return;

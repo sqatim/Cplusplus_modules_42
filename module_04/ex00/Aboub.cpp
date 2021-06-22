@@ -21,6 +21,12 @@ Aboub& Aboub::operator=(Aboub const& src)
     return (*this);
 }
 
+void Aboub::getPolymorphed() const
+{
+    std::cout << this->m_name << \
+        "  has been turned into a red pony!" << std::endl;
+}
+
 Aboub::~Aboub()
 {
     std::cout << "Aboooooo!..." << std::endl;

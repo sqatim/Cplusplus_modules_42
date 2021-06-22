@@ -16,7 +16,7 @@ public:
     Victim& operator=(Victim const& src);
 
     // Other function
-    void getPolymorphed() const;
+    virtual void getPolymorphed() const;
 
     //  accessors
     std::string getName() const;
