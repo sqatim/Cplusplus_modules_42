@@ -2,14 +2,14 @@
 
 int main()
 {
-    Bureaucrat sejuani;
     try
     {
-        for(int i =0; i < 151; i++)
-        {
-            sejuani.décrémentation();
-            std::cout << sejuani.getGrade() <<  std::endl;
-        }
+    Bureaucrat sejuani("sejuani",151);
+        // for(int i =0; i < 151; i++)
+        // {
+        //     sejuani.décrémentation();
+        //     std::cout << sejuani.getGrade() <<  std::endl;
+        // }
     }
     catch(std::exception &e)
     {

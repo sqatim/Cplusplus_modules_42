@@ -1,12 +1,14 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : m_name("Default"), m_grade(0)
-{
-    return ;
-}
 
-Bureaucrat::Bureaucrat(std::string name) : m_name(name), m_grade(0)
+Bureaucrat::Bureaucrat(std::string name, int grade) : m_name(name)
 {
+    if (grade < 1)
+        throw GradeTooHighException();
+    else if(grade > 150)
+        throw GradeTooLowException();
+    else
+        m_grade = grade;
     return ;
 }
 
@@ -47,7 +49,7 @@ std::string Bureaucrat::getName() const
     return (this->m_name);
 }
 
-unsigned int Bureaucrat::getGrade() const
+int Bureaucrat::getGrade() const
 {
     return (this->m_grade);
 }
