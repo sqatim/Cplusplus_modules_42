@@ -9,7 +9,7 @@ int main()
         Form form1("samir", 2, 20);
         form1.beSigned(sejuani);
         std::cout << form1;
-        // sejuani.signForm(form1);
+        sejuani.signForm(form1);
 
     }
     catch(std::exception &e)

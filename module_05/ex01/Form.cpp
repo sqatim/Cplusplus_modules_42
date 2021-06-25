@@ -1,6 +1,6 @@
 #include "Form.hpp"
 
-Form::Form(std::string name, int gradeSign, int gradeExecute) : m_name(name), m_gradeSign(gradeSign), m_gradeExecute(gradeExecute), m_signe(false)
+Form::Form(std::string name, int gradeSign, int gradeExecute) : m_name(name),m_signe(false), m_gradeSign(gradeSign), m_gradeExecute(gradeExecute)
 {
     if (gradeSign < 1 || gradeExecute < 1)
         throw GradeTooHighException();
@@ -13,6 +13,8 @@ void Form::beSigned(Bureaucrat bureaucrat)
 {
     if(bureaucrat.getGrade() < this->m_gradeSign)
         this->m_signe = true;
+    else
+        throw GradeTooLowException();
 }
 
 const char* Form::GradeTooHighException::what() const throw()

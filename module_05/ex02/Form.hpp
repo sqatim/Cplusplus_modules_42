@@ -32,6 +32,7 @@ public:
     int getGradeExecute() const;
     std::string printSign() const;
     std::string const getName() const;
+    virtual void execute(Bureaucrat const & executor) const = 0;
     ~Form();
 };
 
