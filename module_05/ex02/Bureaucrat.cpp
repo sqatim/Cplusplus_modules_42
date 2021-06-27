@@ -12,7 +12,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : m_name(name)
     return ;
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat const& src)
+Bureaucrat::Bureaucrat(Bureaucrat const& src) : m_name(src.m_name)
 {
     *this = src;
     return ;
@@ -21,10 +21,7 @@ Bureaucrat::Bureaucrat(Bureaucrat const& src)
 Bureaucrat& Bureaucrat::operator=(Bureaucrat const& src)
 {
     if (this != &src)
-    {
-        // hta nt2akad name;
         this->m_grade = src.m_grade;
-    }
     return *this;
 }
 
@@ -69,8 +66,10 @@ void Bureaucrat::signForm(Form & form)
     if (form.getSigne() == true)
         std::cout << this->getName() << " signs " << form.getName() << std::endl;
     else
-        std::cout << this->getName() << " cant sign " << form.getName() << " because of grade" << std::endl;
-
+    {
+        Bureaucrat::GradeTooLowException reason;
+        std::cout << this->getName() << " cant sign " << form.getName() << " because " << reason.what() << std::endl;
+    }
 }
 
 void Bureaucrat::executeForm (Form const & form)

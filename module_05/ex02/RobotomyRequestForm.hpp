@@ -7,7 +7,6 @@ class RobotomyRequestForm : public Form
 {
 private:
     std::string m_target;
-    /* data */
     RobotomyRequestForm();
 public:
     RobotomyRequestForm(std::string target);

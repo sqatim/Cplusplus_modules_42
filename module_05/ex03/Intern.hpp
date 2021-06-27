@@ -2,7 +2,9 @@
 #define INTERN_HPP
 
 #include <iostream>
-#include "Form.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 
 class Intern
@@ -10,6 +12,12 @@ class Intern
 private:
     /* data */
 public:
+    class ErreurExecption : public std::exception
+    {
+        public:
+        virtual const char* what() const throw();
+    };
+    
     Intern();
     Intern(Intern const& src);
     Intern& operator=(Intern const& src);

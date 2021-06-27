@@ -11,7 +11,7 @@ Form::Form(std::string name, int gradeSign, int gradeExecute) : m_name(name),m_s
 
 void Form::beSigned(Bureaucrat bureaucrat)
 {
-    if(bureaucrat.getGrade() < this->m_gradeSign)
+    if(bureaucrat.getGrade() <= this->m_gradeSign)
         this->m_signe = true;
     else
         throw GradeTooLowException();

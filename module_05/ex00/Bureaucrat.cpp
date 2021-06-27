@@ -12,7 +12,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : m_name(name)
     return ;
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat const& src)
+Bureaucrat::Bureaucrat(Bureaucrat const& src) : m_name(src.m_name)
 {
     *this = src;
     return ;
@@ -21,10 +21,7 @@ Bureaucrat::Bureaucrat(Bureaucrat const& src)
 Bureaucrat& Bureaucrat::operator=(Bureaucrat const& src)
 {
     if (this != &src)
-    {
-        // hta nt2akad name;
         this->m_grade = src.m_grade;
-    }
     return *this;
 }
 

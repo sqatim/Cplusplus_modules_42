@@ -7,12 +7,13 @@ int main()
 {
     try
     {
-        Bureaucrat sejuani("sejuani",46);
+        Bureaucrat sejuani("sejuani",45);
         RobotomyRequestForm form1("samir");
         sejuani.signForm(form1);
         form1.beSigned(sejuani);
-        // sejuani.executeForm(form1);
-        // form1.execute(sejuani);
+        std::cout << form1;
+        sejuani.executeForm(form1);
+        form1.execute(sejuani);
 
     }
     catch(std::exception &e)
