@@ -4,17 +4,17 @@ typedef Form *(*form_t)(std::string);
 
 Form* presidentialPardon(std::string target)
 {
-    return new PresidentialPardonForm(target);
+    return (Form*)new PresidentialPardonForm(target);
 }
 
 Form* robotomyRequest(std::string target)
 {
-    return new RobotomyRequestForm(target);
+    return (Form*)new RobotomyRequestForm(target);
 }
 
 Form* shrubberyCreation(std::string target)
 {
-    return new ShrubberyCreationForm(target);
+    return (Form*)new ShrubberyCreationForm(target);
 }
 
 Intern::Intern()

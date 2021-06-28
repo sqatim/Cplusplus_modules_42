@@ -55,6 +55,20 @@ int Form::getGradeExecute() const
     return (this->m_gradeExecute);
 }
 
+Form::Form(Form const& src) : m_name(src.m_name), m_gradeSign(src.m_gradeSign), m_gradeExecute(src.m_gradeExecute)// khasni n9adha man ba3d3
+{
+    *this = src;
+    return ;
+}
+
+Form& Form::operator=(Form const& src)
+{
+    if (this != &src)
+    {
+        this->m_signe = src.m_signe;
+    }
+    return (*this);
+}
 
 Form::~Form()
 {

@@ -30,6 +30,8 @@ public:
     {
         virtual const char* what() const throw();
     };
+        Form(Form const& src);
+    Form& operator=(Form const& src);
     void beSigned(Bureaucrat bureaucrat);
     bool getSigne() const;
     int getGradeSign() const;
