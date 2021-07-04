@@ -1,0 +1,41 @@
+std::string to_character(double number)
+{
+    char character;
+    std::string printString;
+    if(std::isnan(number))
+        return ("char: impossible");
+    character = static_cast<char>(number);
+    if(!isprint(character))
+        return ("char: Non displayable");
+    printString = "char: '";
+    printString += character;
+    printString += "'";
+    return (printString);
+}
+
+std::string to_int(double number)
+{
+    int number_int;
+    if(std::isnan(number))
+        return ("int: impossible");
+    number_int =  static_cast<int>(number);
+    return (std::to_string(number_int));
+}
+
+std::string to_float(double number)
+{
+    float number_float;
+    // float number_floatS;
+    if(std::isnan(number))
+        return ("float: nanf");
+    number_float = static_cast<float>(number); 
+    return (std::to_string(number_float));
+}
+
+void printType(std::string character, int number_int, float number_float, double number_double)
+{
+    std::cout << character << std::endl;
+    std::cout << "int: " << number_int <<  std::endl;
+    std::cout << "float: " << std::fixed << std::setprecision(1) <<number_float <<  std::endl;
+    std::cout << "double: " << number_double <<  std::endl;
+}
