@@ -1,31 +1,37 @@
-#include <string>
-#include <iomanip>
 #include <iostream>
-
-typedef struct  Data
+typedef struct s_data
 {
-    int i;//8 
-    std::string str; //24 ---> 52 ----> 
-}Data; 
+    std::string str;
+    int number;
+}Data;
 
-uintptr_t serialization(Data *d) 
+uintptr_t serialize(Data* ptr)
 {
-    return (reinterpret_cast<uintptr_t>(d));
+    return (reinterpret_cast<uintptr_t>(ptr));
 }
 
-Data * deserialization(uintptr_t p)
+Data* deserialize(uintptr_t raw)
 {
-    return (reinterpret_cast<Data*>(p));
+    return (reinterpret_cast<Data *>(raw));
+}
+
+void initialiseData(Data *data)
+{
+    data->number = 1337;
+    data->str = "Leet";
 }
 
 int main()
 {
-    Data *d = new Data;
-    d->i = 100;
-    d->str = "hello";
-    uintptr_t p = serialization(d);
-    Data *m = deserialization(p); // data -- > (xml,json,yaml...) 
-    std::cout << m->i << std::endl;// xml ----> data 
-    std::cout << m->str << std::endl;
+    Data data;
+    uintptr_t raw;
+
+    initialiseData(&data);
+    raw = serialize(&data);
+    std::cout << "i'm student in " << data.number << std::endl;
+    std::cout << "That mean: \"" << data.str <<  "\"" << std::endl;
+    data = *deserialize(raw);
+    std::cout << "i'm student in " << data.number << std::endl;
+    std::cout << "That mean: \"" << data.str <<  "\"" << std::endl;
     return (0);
 }

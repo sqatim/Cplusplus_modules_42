@@ -2,9 +2,8 @@
 #define CONVERT_CLASS_HPP
 
 #include <iostream>
-#include <string>
-#include <iomanip>
 #include <cmath>
+#include <limits>
 
 class Convert
 {
@@ -25,6 +24,7 @@ public:
     Convert(Convert const& src);
     void isNanInf();
     void isCorrect();
+    void convertToDouble(char character);
     void convertToFloat();
     void convertToInt();
     void convertToChar();
@@ -33,5 +33,14 @@ public:
 };
 
 
-
+typedef struct data
+{
+    std::string inf;
+    std::string nInf;
+    std::string nInfF;
+    std::string nanF;
+    std::string nan;
+    std::string pInf;
+    std::string pInfF;
+}   t_data;
 #endif
