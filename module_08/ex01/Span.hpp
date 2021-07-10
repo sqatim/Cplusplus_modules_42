@@ -17,7 +17,6 @@ public:
     void addNumber(long number);
     int shortestSpan();
     int longestSpan();
-    void print(std::vector<int> c); // khasni nhaydha  a zdtha 
     ~Span();
 };
 

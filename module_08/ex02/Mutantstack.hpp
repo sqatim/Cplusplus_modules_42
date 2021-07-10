@@ -5,23 +5,21 @@
 #include <stack>
 
 template<typename T>
-class MutantStack
+class MutantStack : public std::stack<T>
 {
 private:
-    std::stack<T> m_stack;
 public:
     MutantStack(){ return; }
-    // MutantStack(MutantStack const& src);
-    // MutantStack operator=(MutantStack const& src);
-    void push(int number) {m_stack.push(number);}
-    void pop(){m_stack.pop();}
-    T top(){return m_stack.top();}
-    class iterator : public std::iterator
+    typedef typename std::stack<T>::container_type::iterator iterator;
+    MutantStack(MutantStack const& src){*this = src;}
+    MutantStack operator=(MutantStack const& src)
     {
-    private:
-    public:
-    };
-    std::iterator begin(){return m_stack.begin();}
+        if(this != src)
+        {}
+        return (*this);
+    }
+    iterator begin(){return this->c.begin();}
+    iterator end(){return this->c.end();}
     ~MutantStack(){ return; }
 }; 
 

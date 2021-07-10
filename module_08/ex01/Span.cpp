@@ -5,11 +5,27 @@ Span::Span(unsigned int n) : m_n(n)
     return;
 }
 
+Span::Span(Span const &src)
+{
+    *this = src;
+    return;
+}
+
+Span Span::operator=(Span const &src)
+{
+    if (this != &src)
+    {
+        this->m_n = src.m_n;
+        this->m_ints = src.m_ints;
+    }
+    return (*this);
+}
+
 void Span::addNumber(long number)
 {
-    if(number > 2147483647 || number < -2147483648)
+    if (number > 2147483647 || number < -2147483648)
         throw std::string("Out of limit.");
-    if(m_n > 0)
+    if (m_n > 0)
     {
         m_ints.push_back(number);
         m_n--;
@@ -42,14 +58,6 @@ int Span::longestSpan()
     sort(copy.begin(), copy.end());
     shortSpan = copy[copy.size() - 1] - copy[0];
     return (shortSpan);
-}
-
-void Span::print(std::vector<int> v)
-{
-    std::cout << "*****************" << std::endl;
-    for (int i = 0; i < v.size(); i++)
-        std::cout << v[i] << std::endl;
-    std::cout << "*****************" << std::endl;
 }
 
 Span::~Span()
