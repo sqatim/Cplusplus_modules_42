@@ -2,7 +2,9 @@ NAME= RPN
 
 OBJ_PATH= objects
 
-SRC_NAME= main.cpp
+SRC_NAME= main.cpp ReversePolishNotation.cpp
+
+HDR_NAME= ReversePolishNotation.hpp
 
 OBJ_NAME= $(SRC_NAME:.cpp=.o)
 OBJ= $(addprefix $(OBJ_PATH)/,$(OBJ_NAME))
@@ -17,7 +19,7 @@ $(NAME) : $(OBJ)
 	@$(COMP) $(OBJ) -o $@
 	@echo "Compilation of $(NAME):  \033[1;32mOK\033[m"
 
-$(OBJ_PATH)/%.o:  %.cpp
+$(OBJ_PATH)/%.o:  %.cpp $(HDR_NAME)
 	@mkdir -p $(OBJ_PATH) 
 	@$(COMP) -g $(FLAGS) -o $@ -c $<
 
