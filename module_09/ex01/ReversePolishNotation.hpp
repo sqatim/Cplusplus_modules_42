@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <cctype>
+#include <stdio.h>
 
 #define TOKEN 1
 #define NUMBER 2

@@ -1,11 +1,11 @@
-#include "ReversePolishNotation.hpp"
+#include "MergeInsertSort.hpp"
 
 int main(int ac, char **av)
 {
     try
     {
-        if (ac == 2)
-            ReversePolishNotation rpn(av[1]);
+        if (ac > 1)
+            MergeInsertSort mergeInsert(&av[1]);
         else
             throw std::string("Error: you need to enter one argument");
     }
