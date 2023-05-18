@@ -1,7 +1,25 @@
 #include "MergeInsertSort.hpp"
 
-MergeInsertSort::MergeInsertSort(/* args */) : m_insertionSortThreshold(10)
+MergeInsertSort::MergeInsertSort(/* args */) : m_insertionSortThreshold(10), m_timeDeque(0), m_timeVector(0)
 {
+}
+
+MergeInsertSort::MergeInsertSort(MergeInsertSort const &src) : m_insertionSortThreshold(10)
+{
+    *this = src;
+    return;
+}
+
+MergeInsertSort &MergeInsertSort::operator=(MergeInsertSort const &src)
+{
+    if (this != &src)
+    {
+        this->m_timeDeque = src.getTimeDeque();
+        this->m_timeVector = src.getTimeVector();
+        this->m_dequeList = src.getDequeList();
+        this->m_vectorList = src.getVectorList();
+    }
+    return (*this);
 }
 
 void MergeInsertSort::printBefore()
@@ -37,7 +55,6 @@ void MergeInsertSort::insertSort(std::vector<int> &container, int lower, int hig
     int value;
     int j;
 
-    int index1;
     for (int index = lower + 1; index <= higher; index++)
     {
         j = index - 1;
@@ -99,7 +116,6 @@ void MergeInsertSort::insertSort(std::deque<int> &container, int lower, int high
     int value;
     int j;
 
-    int index1;
     for (int index = lower + 1; index <= higher; index++)
     {
         j = index - 1;
@@ -154,7 +170,7 @@ void MergeInsertSort::mergeInsertSortImplementation(std::deque<int> &list, int l
         this->insertSort(list, lower, higher);
 }
 
-MergeInsertSort::MergeInsertSort(char **av) : m_insertionSortThreshold(4)
+MergeInsertSort::MergeInsertSort(char **av) : m_insertionSortThreshold(4), m_timeDeque(0), m_timeVector(0)
 {
     char *token;
     int number;
@@ -174,15 +190,18 @@ MergeInsertSort::MergeInsertSort(char **av) : m_insertionSortThreshold(4)
             token = strtok(NULL, " ");
         }
     }
-    this->printBefore();
-    start = std::clock();
-    this->mergeInsertSortImplementation(this->m_vectorList, 0, this->m_vectorList.size() - 1);
-    end = std::clock();
-    this->m_timeVector = (end - start) / (double)CLOCKS_PER_SEC * 1000;
-    start = std::clock();
-    this->mergeInsertSortImplementation(this->m_dequeList, 0, this->m_dequeList.size() - 1);
-    end = std::clock();
-    this->m_timeDeque = (end - start) / (double)CLOCKS_PER_SEC * 1000;
+    if (this->m_vectorList.size())
+    {
+        this->printBefore();
+        start = std::clock();
+        this->mergeInsertSortImplementation(this->m_vectorList, 0, this->m_vectorList.size() - 1);
+        end = std::clock();
+        this->m_timeVector = (end - start) / (double)CLOCKS_PER_SEC * 1000;
+        start = std::clock();
+        this->mergeInsertSortImplementation(this->m_dequeList, 0, this->m_dequeList.size() - 1);
+        end = std::clock();
+        this->m_timeDeque = (end - start) / (double)CLOCKS_PER_SEC * 1000;
+    }
 }
 
 std::vector<int> MergeInsertSort::getVectorList() const
@@ -213,15 +232,20 @@ std::ostream &operator<<(std::ostream &output, MergeInsertSort const &src)
 {
     std::vector<int> vectorList = src.getVectorList();
     std::deque<int> dequeList = src.getDequeList();
-    output << "After: ";
-    for (std::vector<int>::iterator it = vectorList.begin(); it != vectorList.end(); ++it)
+    if (vectorList.size())
     {
-        output << *it;
-        if (it + 1 != vectorList.end())
-            output << " ";
+        output << "After: ";
+        for (std::vector<int>::iterator it = vectorList.begin(); it != vectorList.end(); ++it)
+        {
+            output << *it;
+            if (it + 1 != vectorList.end())
+                output << " ";
+        }
+        output << std::endl;
+        output << "Time to process a range of " << vectorList.size() << " elements with std::vector : " << src.getTimeVector() << std::endl;
+        output << "Time to process a range of " << dequeList.size() << " elements with std::deque : " << src.getTimeDeque();
     }
-    output << std::endl;
-    output << "Time to process a range of " << vectorList.size() << " elements with std::vector : " << src.getTimeVector() << std::endl;
-    output << "Time to process a range of " << dequeList.size() << " elements with std::deque : " << src.getTimeDeque();
+    else
+        output << "Warning: you haven't entered any numbers";
     return (output);
 }

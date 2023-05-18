@@ -1,10 +1,10 @@
-NAME= PmergeMe
+NAME= btc
 
 OBJ_PATH= objects
 
-SRC_NAME= main.cpp MergeInsertSort.cpp
+SRC_NAME= main.cpp Bitcoin.cpp
 
-HDR_NAME= MergeInsertSort.hpp
+HDR_NAME= Bitcoin.hpp
 
 OBJ_NAME= $(SRC_NAME:.cpp=.o)
 OBJ= $(addprefix $(OBJ_PATH)/,$(OBJ_NAME))

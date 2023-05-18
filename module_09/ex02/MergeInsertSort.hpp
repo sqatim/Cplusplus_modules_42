@@ -8,12 +8,12 @@
 class MergeInsertSort
 {
 private:
+    const int m_insertionSortThreshold;
     std::vector<int> m_vectorList;
     std::deque<int> m_dequeList;
-    double m_timeVector;
     double m_timeDeque;
+    double m_timeVector;
 
-    const int m_insertionSortThreshold;
     int isValidNumber(char *str);
     void merge(std::vector<int> &container, int lower, int middle, int higher);
     void insertSort(std::vector<int> &container, int lower, int higher);
@@ -25,6 +25,8 @@ private:
 
 public:
     MergeInsertSort(char **av);
+    MergeInsertSort(MergeInsertSort const &src);
+    MergeInsertSort &operator=(MergeInsertSort const &src);
     void mergeInsertSortImplementation(std::vector<int> &, int lower, int higher);
     void mergeInsertSortImplementation(std::deque<int> &, int lower, int higher);
     std::vector<int> getVectorList() const;
