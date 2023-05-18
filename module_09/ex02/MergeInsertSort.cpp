@@ -88,7 +88,7 @@ void MergeInsertSort::merge(std::vector<int> &container, int lower, int middle, 
     while (j <= higher)
         temp.push_back(container[j++]);
     i = lower;
-    for (std::vector<int>::iterator it = temp.begin(); it != temp.end(); ++it)
+    for (std::vector<int>::iterator it = temp.begin();i <= higher; ++it)
     {
         this->m_vectorList[i++] = *it;
     }
@@ -149,7 +149,7 @@ void MergeInsertSort::merge(std::deque<int> &container, int lower, int middle, i
     while (j <= higher)
         temp.push_back(container[j++]);
     i = lower;
-    for (std::deque<int>::iterator it = temp.begin(); it != temp.end(); ++it)
+    for (std::deque<int>::iterator it = temp.begin(); i <= higher; ++it) //TODO: Verify i;
     {
         this->m_vectorList[i++] = *it;
     }

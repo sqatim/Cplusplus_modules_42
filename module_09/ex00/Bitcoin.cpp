@@ -128,6 +128,19 @@ bool Bitcoin::checkLine(char *line, std::string &date, double &value)
         parsed = strtok(NULL, " \t");
         index++;
     }
+    if (index == 1)
+    {
+        std::cerr << "Error: Please check the separator" << std::endl;
+        return (false);
+    }
+    else if (index == 2)
+    {
+        if (this->m_syntax[0] == "date")
+            std::cerr << "Error: Please check the value" << std::endl;
+        else
+            std::cerr << "Error: Please check the date" << std::endl;
+        return (false);
+    }
     return true;
 }
 
@@ -148,7 +161,7 @@ void Bitcoin::checkSyntax(char *str)
         else if (index == 1)
         {
             if (strcmp(parsed, "|") && strcmp(parsed, ","))
-                throw std::string("Error: you must choose a separator between '|' or ',' ");
+                throw std::string("Error: you must choose a separator between '|' or ',' in the syntax");
         }
         else if (index == 2)
         {
