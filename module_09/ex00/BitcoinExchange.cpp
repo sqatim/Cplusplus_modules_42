@@ -1,4 +1,4 @@
-#include "Bitcoin.hpp"
+#include "BitcoinExchange.hpp"
 
 Bitcoin::Bitcoin()
 {
@@ -15,10 +15,27 @@ Bitcoin::Bitcoin()
         std::getline(bitcoinPrices, str);
         std::stringstream stringStream(str.c_str());
         std::getline(stringStream, date, ',');
-        // std::cout << date << "," << exchangeRate << std::endl;
         std::getline(stringStream, exchangeRate, ',');
         this->m_mapList[date] = std::stod(exchangeRate);
     }
+}
+
+Bitcoin::Bitcoin(Bitcoin const &src)
+{
+    *this = src;
+    return;
+}
+
+Bitcoin &Bitcoin::operator=(Bitcoin const &src)
+{
+    if (this != &src)
+    {
+        this->m_mapList = src.getMapList();
+        this->m_syntax[0] = src.getSyntax()[0];
+        this->m_syntax[1] = src.getSyntax()[1];
+        this->m_syntax[2] = src.getSyntax()[2];
+    }
+    return (*this);
 }
 
 int checkIfNumber(const char *str)
@@ -39,7 +56,10 @@ bool isValidDate(int year, int month, int day)
         return (false);
     if (day < 1 || day > 31)
         return (false);
-    isLeap = year % 4 == 0;
+    if (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0))
+        isLeap = true;
+    else
+        isLeap = false;
     if (month == 2)
     {
         if (isLeap && day >= 30)
@@ -128,6 +148,8 @@ bool Bitcoin::checkLine(char *line, std::string &date, double &value)
         parsed = strtok(NULL, " \t");
         index++;
     }
+    if(index == 0)
+        return (false);
     if (index == 1)
     {
         std::cerr << "Error: Please check the separator" << std::endl;
@@ -213,10 +235,20 @@ std::string Bitcoin::calculePrices(char *file)
     this->checkSyntax((char *)str.c_str());
     while (std::getline(inputFile, str))
     {
-        if (this->checkLine((char *)str.c_str(), date, value))
+        if (str.c_str() && this->checkLine((char *)str.c_str(), date, value))
             this->extractPrice(date, value);
     }
     return (str);
+}
+
+std::map<std::string, double> Bitcoin::getMapList() const
+{
+    return (this->m_mapList);
+}
+
+std::string *Bitcoin::getSyntax() const
+{
+    return ((std::string *)this->m_syntax);
 }
 
 Bitcoin::~Bitcoin()

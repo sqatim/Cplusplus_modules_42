@@ -1,4 +1,4 @@
-#include "MergeInsertSort.hpp"
+#include "PmergeMe.hpp"
 
 MergeInsertSort::MergeInsertSort(/* args */) : m_insertionSortThreshold(10), m_timeDeque(0), m_timeVector(0)
 {
@@ -149,7 +149,7 @@ void MergeInsertSort::merge(std::deque<int> &container, int lower, int middle, i
     while (j <= higher)
         temp.push_back(container[j++]);
     i = lower;
-    for (std::deque<int>::iterator it = temp.begin(); i <= higher; ++it) //TODO: Verify i;
+    for (std::deque<int>::iterator it = temp.begin(); i <= higher; ++it)
     {
         this->m_vectorList[i++] = *it;
     }

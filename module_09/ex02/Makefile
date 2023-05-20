@@ -2,9 +2,9 @@ NAME= PmergeMe
 
 OBJ_PATH= objects
 
-SRC_NAME= main.cpp MergeInsertSort.cpp
+SRC_NAME= main.cpp PmergeMe.cpp
 
-HDR_NAME= MergeInsertSort.hpp
+HDR_NAME= PmergeMe.hpp
 
 OBJ_NAME= $(SRC_NAME:.cpp=.o)
 OBJ= $(addprefix $(OBJ_PATH)/,$(OBJ_NAME))
@@ -21,7 +21,7 @@ $(NAME) : $(OBJ)
 
 $(OBJ_PATH)/%.o:  %.cpp $(HDR_NAME)
 	@mkdir -p $(OBJ_PATH) 
-	@$(COMP) -g $(FLAGS) -o $@ -c $<
+	@$(COMP) $(FLAGS) -o $@ -c $<
 
 clean:
 	@rm -rf $(OBJ_PATH)

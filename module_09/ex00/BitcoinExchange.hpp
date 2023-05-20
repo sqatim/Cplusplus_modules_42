@@ -14,6 +14,10 @@ private:
 
 public:
     Bitcoin(/* args */);
+    Bitcoin(Bitcoin const &src);
+    Bitcoin &operator=(Bitcoin const &src);
     std::string calculePrices(char *file);
+    std::map<std::string, double> getMapList() const;
+    std::string *getSyntax() const;
     ~Bitcoin();
 };

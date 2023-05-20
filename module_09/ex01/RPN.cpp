@@ -1,4 +1,4 @@
-#include "ReversePolishNotation.hpp"
+#include "RPN.hpp"
 
 ReversePolishNotation::ReversePolishNotation(/* args */)
 {
@@ -68,7 +68,11 @@ void ReversePolishNotation::calculateResult(char token)
     else if (token == '*')
         this->rpn.push(number2 * number1);
     else if (token == '/')
+    {
+        if (number1 == 0)
+            throw std::string("ERROR: You can't divide by 0");
         this->rpn.push(number2 / number1);
+    }
 }
 
 ReversePolishNotation::ReversePolishNotation(char *argument)
